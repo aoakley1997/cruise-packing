@@ -1,0 +1,9 @@
+{
+  "name": "Cruise Packer",
+  "short_name": "Cruise Packer",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f4f6fa",
+  "theme_color": "#142238",
+  "description": "Plan cruise outfits and track packing."
+}

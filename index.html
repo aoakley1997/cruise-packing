@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#142238">
+<link rel="manifest" href="manifest.json">
+<title>Cruise Packer</title>
+<style>
+:root{--bg:#f4f6fa;--ink:#17253b;--muted:#68758a;--line:#e2e7ef;--brand:#5b58e8}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}button{cursor:pointer}.wrap{max-width:940px;margin:auto;padding-bottom:95px}header{padding:22px 18px;background:linear-gradient(135deg,#142238,#2b4262);color:#fff}.head{display:flex;justify-content:space-between;align-items:center}.brand{font-size:23px;font-weight:850}.sub{font-size:12px;opacity:.75}.icon{background:#ffffff20;color:#fff;border:1px solid #ffffff30;border-radius:12px;padding:9px}main{padding:16px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:15px}.stat,.panel,.item,.outfit{background:white;border:1px solid var(--line);border-radius:16px}.stat{padding:12px}.stat b{font-size:22px}.stat span{display:block;color:var(--muted);font-size:11px}.tabs,.filters,.chips{display:flex;gap:7px;overflow:auto;margin-bottom:14px}.tab,.filter,.chip{border:1px solid var(--line);background:white;border-radius:999px;padding:9px 13px;white-space:nowrap}.tab.active{background:var(--ink);color:white}.filter{font-size:12px;padding:7px 11px}.filter.active,.chip.sel{background:#eeedff;color:#4d49c8;border-color:#d4d2ff}.headrow{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:18px 0 8px}.headrow h2{font-size:18px;margin:0}.hint,.muted{font-size:12px;color:var(--muted)}.btn{border:0;border-radius:12px;padding:10px 13px;font-weight:750}.primary{background:var(--brand);color:white}.secondary{background:#edf0f6;color:var(--ink)}.danger{background:#fff0f0;color:#b4232f}.search{width:100%;padding:12px;border:1px solid var(--line);border-radius:12px;margin-bottom:9px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.item,.outfit{overflow:hidden}.photo{aspect-ratio:1;background:#edf0f5;display:flex;align-items:center;justify-content:center;font-size:34px;overflow:hidden}.photo img,.mini img,.pickphoto img,.previewcell img{width:100%;height:100%;object-fit:contain}.body{padding:10px}.name{font-weight:800;overflow-wrap:anywhere}.badge{display:inline-block;border-radius:99px;padding:4px 8px;margin-top:6px;font-size:10px;font-weight:800;background:#fff1d0;color:#855600}.badge.done{background:#dff7ed;color:#087f5b}.look,.previewlook{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;padding:10px 10px 0}.mini,.previewcell{aspect-ratio:1;background:#edf0f5;border-radius:10px;display:flex;align-items:center;justify-content:center;overflow:hidden;font-size:25px}.outfitbody{padding:10px}.occasion{font-size:10px;color:var(--brand);font-weight:900;text-transform:uppercase}.actions{display:flex;gap:7px;margin-top:9px}.actions .btn{font-size:12px;padding:8px}.empty{text-align:center;padding:28px 18px;background:white;border:1px dashed #cfd6e3;border-radius:17px;color:var(--muted)}.empty h3{color:var(--ink);margin:8px 0 4px}.help{background:#f0efff;border:1px solid #e1dfff;border-radius:12px;padding:11px;margin:10px 0 14px;font-size:12px;color:#4b4a7a}.help strong{display:block;color:#37357c;margin-bottom:3px}.bottom{position:fixed;bottom:0;left:0;right:0;background:#ffffffed;backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:9px max(10px,calc((100vw - 940px)/2 + 10px)) calc(9px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.bottom button{border:0;border-radius:12px;padding:11px 4px;background:#edf0f6;font-weight:850;font-size:12px}.bottom button:first-child{background:var(--brand);color:white}.field{margin-bottom:12px}.field label{display:block;font-size:12px;font-weight:800;margin-bottom:6px}.field input,.field select{width:100%;padding:11px;border:1px solid var(--line);border-radius:11px;background:white}.row{display:flex;gap:8px;align-items:center}.between{justify-content:space-between}.panel{padding:15px}.progress{height:8px;background:#e8ebf1;border-radius:9px;overflow:hidden}.progress div{height:100%;background:var(--brand)}.modal{position:fixed;inset:0;background:#101c2f99;z-index:50;display:flex;align-items:flex-end;justify-content:center}.sheet{background:white;width:min(940px,100%);max-height:94vh;overflow:auto;border-radius:24px 24px 0 0;padding:17px 16px calc(22px + env(safe-area-inset-bottom))}.sheettop{display:flex;justify-content:space-between;align-items:center;gap:10px}.sheettop h2{font-size:20px;margin:0}.close{border:0;border-radius:50%;width:36px;height:36px;background:#edf0f6;font-size:21px}.chips{margin:12px 0}.chip{font-size:12px;font-weight:750}.suggest{display:flex;gap:8px;margin-bottom:12px}.suggest button{flex:1}.preview{background:linear-gradient(135deg,#f0efff,#f7f8fc);padding:12px;border-radius:16px;margin-bottom:14px}.picktitle{font-weight:850;margin:15px 0 4px}.pickgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.pick{border:2px solid var(--line);border-radius:12px;background:white;padding:0;overflow:hidden;text-align:left;min-width:0}.pick.sel{border-color:var(--brand)}.pickphoto{aspect-ratio:1;background:#edf0f5;display:flex;align-items:center;justify-content:center;overflow:hidden;font-size:25px}.pickname{padding:6px;font-size:11px;font-weight:800;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.footnote{font-size:11px;color:var(--muted);margin-top:12px}.syncbar{position:sticky;top:0;z-index:20;background:#fff7d6;color:#694b00;padding:7px 12px;font-size:12px;text-align:center;border-bottom:1px solid #f1dda0}.syncbar.ok{background:#e2f8ec;color:#08633f;border-color:#b8e8ce}.syncbar.err{background:#fff0f0;color:#a31d2d;border-color:#f2c5c9}.syncbar button{margin-left:8px;border:0;border-radius:8px;padding:4px 8px;background:#fff;font-weight:800;color:inherit}@media(min-width:650px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.pickgrid{grid-template-columns:repeat(4,minmax(0,1fr))}.sheet{border-radius:24px;margin:20px;max-height:calc(100vh - 40px)}.modal{align-items:center}}@media print{header,.tabs,.bottom,.btn,.filters,.search,.stats,.help,nav,.syncbar{display:none!important}body{background:white;color:black}.wrap{max-width:100%!important;padding:0!important}.panel{border:1px solid #ddd!important;box-shadow:none!important}}
+</style>
+</head>
+<body><div class="wrap" id="app"></div>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+<script>
+const firebaseConfig={apiKey:"AIzaSyDbvwveXCJklWyPN1tlIf_EUv84OTEip-k",authDomain:"cruise-packer.firebaseapp.com",projectId:"cruise-packer",storageBucket:"cruise-packer.firebasestorage.app",messagingSenderId:"72270607937",appId:"1:72270607937:web:1ec0ce14c6c74b9d10b8c0"};
+firebase.initializeApp(firebaseConfig);
+const auth=firebase.auth(),db=firebase.firestore();
+const KEY='cruisePackerV1';
+let data={cruise:{name:'My Cruise'},items:[],outfits:[],other:[]},currentUser=null,cloudReady=false,loading=true;
+let st={tab:'outfits',q:'',cat:'All',oq:'',oc:'All',modal:null};
+let unsubscribe=[],syncState='loading',syncMessage='Loading your saved trip…',pendingWrites=0,writeQueue=Promise.resolve(),migrationRunning=false;
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,9);
+const it=id=>data.items.find(x=>x.id===id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+const pic=(x,i)=>x&&x.photo?`<img src="${esc(x.photo)}" alt="">`:i;
+const ol=o=>({day:'Day',ashore:'Ashore',dinner:'Dinner',dressup:'Dress up'})[o]||'Day';
+const oi=o=>({day:'☀️',ashore:'🏝️',dinner:'🍽️',dressup:'✨'})[o]||'👕';
+const defaults=()=>({cruise:{name:'My Cruise'},items:[],outfits:[],other:[]});
+function localRead(){try{const v=JSON.parse(localStorage.getItem(KEY)||'null');return v&&typeof v==='object'?v:null}catch(e){return null}}
+function localWrite(){try{localStorage.setItem(KEY,JSON.stringify(data))}catch(e){console.warn('Local cache write failed',e)}}
+function status(kind,msg){syncState=kind;syncMessage=msg;const el=document.getElementById('syncbar');if(el){el.className='syncbar '+(kind==='ok'?'ok':kind==='err'?'err':'');el.innerHTML=esc(msg)+(kind==='err'?'<button onclick="retrySync()">Retry</button>':'');}}
+function stopListeners(){unsubscribe.forEach(fn=>{try{fn()}catch(e){}});unsubscribe=[]}
+function userRef(){if(!currentUser)throw new Error('No signed-in user');return db.collection('trips').doc(currentUser.uid)}
+function collectionFor(kind){return userRef().collection(kind)}
+function cleanRecord(x){const y={...x};delete y._sync;return y}
+function normaliseRecord(x){return {...x,id:String(x.id||uid()),updatedAtMs:Number(x.updatedAtMs||0),deleted:!!x.deleted}}
+function upsertLocal(kind,record){const arr=data[kind],idx=arr.findIndex(x=>x.id===record.id);if(record.deleted){if(idx>=0)arr.splice(idx,1);return}if(idx>=0)arr[idx]={...arr[idx],...record};else arr.push(record)}
+function recordsToObject(arr){return Array.isArray(arr)?arr.filter(x=>x&&typeof x==='object').map(normaliseRecord):[]}
+function legacyCombine(local,cloud){
+ const a=local&&typeof local==='object'?local:defaults(),b=cloud&&typeof cloud==='object'?cloud:defaults();
+ const merge=(la,ca)=>{const m=new Map();for(const x of recordsToObject(la))m.set(x.id,x);for(const x of recordsToObject(ca)){const old=m.get(x.id);if(!old||Number(x.updatedAtMs||0)>=Number(old.updatedAtMs||0))m.set(x.id,{...(old||{}),...x,photo:x.photo||old?.photo||''})}return [...m.values()].filter(x=>!x.deleted)};
+ return {...defaults(),...a,...b,cruise:{...(a.cruise||{}),...(b.cruise||{})},items:merge(a.items,b.items),outfits:merge(a.outfits,b.outfits),other:merge(a.other,b.other)};
+}
+function setSync(kind,msg){status(kind,msg)}
+function recordPath(kind,id){return collectionFor(kind).doc(String(id))}
+// Spark-plan photo storage: each record owns its compressed JPEG data URL.
+// Firestore documents have a hard 1 MiB limit. Refuse oversized photos rather
+// than attempting a write that could fail or truncate user data.
+const MAX_PHOTO_CHARS=650000;
+async function uploadPhoto(kind,id,photo){
+ if(!photo)return '';
+ if(photo.startsWith('data:image/')){
+  if(photo.length>MAX_PHOTO_CHARS)throw new Error('This photo is too large for the free Firestore plan. Please select a smaller photo. No saved data was changed.');
+  return photo;
+ }
+ if(/^https:\/\//.test(photo))return photo; // preserve any pre-existing hosted photo
+ throw new Error('Unsupported photo format. Nothing was saved.');
+}
+async function saveRecord(kind,record){
+ if(!currentUser||!cloudReady)throw new Error('Cloud data is not ready; this change has not been synced.');
+ const previous=data[kind].find(x=>x.id===String(record.id));
+ const expectedMs=previous?Number(previous.updatedAtMs||0):null;
+ const rec={...record,id:String(record.id||uid()),updatedAtMs:Date.now(),deleted:false};
+ if(rec.photo)rec.photo=await uploadPhoto(kind,rec.id,rec.photo);
+ const ref=recordPath(kind,rec.id);
+ await db.runTransaction(async tx=>{
+  const snap=await tx.get(ref);
+  if(expectedMs===null && snap.exists)throw new Error('Conflict: this record ID already exists. Reload before trying again.');
+  if(expectedMs!==null){
+   if(!snap.exists)throw new Error('Conflict: this record was removed on another device. Reload before trying again.');
+   const remote=snap.data()||{};
+   if(remote.deleted || Number(remote.updatedAtMs||0)!==expectedMs)throw new Error('Conflict: this record changed on another device. Your change was not allowed to overwrite it. Reload and try again.');
+  }
+  tx.set(ref,{...cleanRecord(rec),updatedAt:firebase.firestore.FieldValue.serverTimestamp()},{merge:false});
+ });
+ upsertLocal(kind,rec);localWrite();return rec;
+}
+async function tombstone(kind,id){
+ if(!currentUser||!cloudReady)throw new Error('Cloud data is not ready; delete was not synced.');
+ const previous=data[kind].find(x=>x.id===String(id));
+ if(!previous)throw new Error('This record is no longer in the current list. Reload before deleting.');
+ const expectedMs=Number(previous.updatedAtMs||0),ref=recordPath(kind,id),rec={id:String(id),deleted:true,updatedAtMs:Date.now(),updatedAt:firebase.firestore.FieldValue.serverTimestamp()};
+ await db.runTransaction(async tx=>{const snap=await tx.get(ref);if(!snap.exists)throw new Error('Conflict: this record was already removed.');const remote=snap.data()||{};if(remote.deleted||Number(remote.updatedAtMs||0)!==expectedMs)throw new Error('Conflict: this record changed on another device. Reload before deleting.');tx.set(ref,rec,{merge:false})});
+ data[kind]=data[kind].filter(x=>x.id!==id);localWrite();
+}
+async function runWrite(fn){
+ pendingWrites++;status('busy','Saving securely…');
+ writeQueue=writeQueue.catch(()=>{}).then(fn).then(()=>{pendingWrites=Math.max(0,pendingWrites-1);if(!pendingWrites)status('ok','All changes synced');}).catch(err=>{pendingWrites=Math.max(0,pendingWrites-1);console.error('Cloud save failed',err);status('err','Sync failed. Your last change may not be in the cloud. Do not clear browser data. '+(err.code||err.message||''));throw err});
+ return writeQueue;
+}
+function retrySync(){if(!currentUser)return;loadUserData(currentUser).catch(e=>{console.error(e);status('err','Could not reload cloud data. Your existing cloud records were not deleted. '+(e.code||e.message||''))})}
+function renderLogin(message=''){
+ document.getElementById('app').innerHTML=`<div style="max-width:420px;margin:50px auto;padding:22px;background:white;border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 30px #1422380d"><div style="font-size:32px;margin-bottom:8px">🧳</div><h2 style="margin:0 0 6px">Cruise Packer</h2><p class="hint" style="margin:0 0 20px">Sign in to access your saved wardrobe, outfits and packing list.</p><form onsubmit="event.preventDefault();doLogin()"><div class="field"><label for="loginEmail">Email address</label><input id="loginEmail" type="email" autocomplete="username" placeholder="you@example.com" required></div><div class="field"><label for="loginPass">Password</label><input id="loginPass" type="password" autocomplete="current-password" placeholder="Your password" required></div><p id="loginMessage" class="hint" role="status" aria-live="polite" style="min-height:18px;color:${message?'#b4232f':'var(--muted)'}">${esc(message)}</p><button id="loginButton" class="btn primary" type="submit" style="width:100%;margin-top:4px">Sign In</button></form><button class="btn secondary" type="button" onclick="resetLoginPassword()" style="width:100%;margin-top:8px">Forgot Password?</button><p class="hint" style="margin-top:16px">Use your existing account. New accounts cannot be created from this page.</p></div>`;
+}
+function friendlyAuthError(e){const m={'auth/invalid-email':'Please enter a valid email address.','auth/invalid-credential':'Email or password is incorrect.','auth/invalid-login-credentials':'Email or password is incorrect.','auth/wrong-password':'Email or password is incorrect.','auth/user-not-found':'No account was found for that email address.','auth/user-disabled':'This account has been disabled.','auth/too-many-requests':'Too many attempts. Please wait and try again.','auth/network-request-failed':'Could not connect to Firebase. Check your internet connection.','auth/operation-not-allowed':'Email/password sign-in is not enabled.','auth/unauthorized-domain':'Add this GitHub Pages domain to Firebase Authentication → Settings → Authorized domains.'};return m[e.code]||`Unable to sign in (${e.code||'unknown error'}).`}
+async function doLogin(){const email=document.getElementById('loginEmail')?.value.trim()||'',pass=document.getElementById('loginPass')?.value||'',b=document.getElementById('loginButton');if(!email||!pass)return;if(b){b.disabled=true;b.textContent='Signing in…'}try{await auth.signInWithEmailAndPassword(email,pass)}catch(e){renderLogin(friendlyAuthError(e));const el=document.getElementById('loginEmail');if(el)el.value=email}finally{const x=document.getElementById('loginButton');if(x){x.disabled=false;x.textContent='Sign In'}}}
+async function resetLoginPassword(){const email=document.getElementById('loginEmail')?.value.trim()||'',m=document.getElementById('loginMessage');if(!email){if(m)m.textContent='Enter your email address first.';return}try{await auth.sendPasswordResetEmail(email);if(m)m.textContent='If an account exists, a password reset email has been sent.'}catch(e){if(m)m.textContent=friendlyAuthError(e)}}
+
+/* NON-DESTRUCTIVE LEGACY MIGRATION
+   The old trips/{uid} document is never deleted or rewritten by migration.
+   Legacy arrays are copied to per-record subcollections using stable record IDs.
+   If migration fails partway through, the legacy document remains available and the
+   migration can safely be retried. */
+async function migrateLegacyIfNeeded(user){
+ const root=db.collection('trips').doc(user.uid),meta=root.collection('_meta').doc('migrationV2');
+ const marker=await meta.get();if(marker.exists&&marker.data()?.complete===true)return false;
+ const legacy=await root.get();
+ if(!legacy.exists){await meta.set({complete:true,version:2,completedAt:firebase.firestore.FieldValue.serverTimestamp()},{merge:true});return false}
+ const old=legacy.data()||{};
+ // If the old doc is clearly not the legacy data schema, do not mark migration complete.
+ const hasLegacy=['items','outfits','other','cruise'].some(k=>Object.prototype.hasOwnProperty.call(old,k));
+ if(!hasLegacy)throw new Error('Legacy data document has an unexpected structure; migration stopped without changing it.');
+ for(const kind of ['items','outfits','other']){
+  const arr=Array.isArray(old[kind])?old[kind]:[];
+  for(let index=0;index<arr.length;index++){
+   const raw=arr[index];if(!raw||typeof raw!=='object')continue;
+   const rec=normaliseRecord({...raw,id:raw.id||`legacy-${kind}-${index}`});
+   let photo=rec.photo||'';
+   if(photo.startsWith('data:image/'))photo=await uploadPhoto(kind,rec.id,photo);
+   const dest=recordPath(kind,rec.id);
+   const existing=await dest.get();
+   // Never replace an existing per-record document during migration.
+   if(!existing.exists)await dest.set({...cleanRecord({...rec,photo}),updatedAt:firebase.firestore.FieldValue.serverTimestamp(),migrationSource:'legacy-v1'});
+  }
+ }
+ // Keep cruise settings in root metadata; do not replace the legacy root document.
+ const settingsRef=root.collection('_meta').doc('settings');
+ const settings=await settingsRef.get();
+ if(!settings.exists)await settingsRef.set({cruise:old.cruise||{name:'My Cruise'},cruiseUpdatedAtMs:Date.now(),migrationSource:'legacy-v1'});
+ // Verify every legacy record now has a corresponding target document before marking complete.
+ for(const kind of ['items','outfits','other']){
+  const arr=Array.isArray(old[kind])?old[kind]:[];
+  for(let index=0;index<arr.length;index++){const raw=arr[index];if(!raw||typeof raw!=='object')continue;const id=String(raw.id||`legacy-${kind}-${index}`);const d=await recordPath(kind,id).get();if(!d.exists)throw new Error(`Migration verification failed for ${kind}/${id}. Original data remains intact.`);const copied=d.data()||{};if(copied.deleted||String(copied.name||'')!==String(raw.name||'')||(raw.photo&&(!copied.photo||!(String(copied.photo).startsWith('data:image/')||String(copied.photo).startsWith('https://')))))throw new Error(`Migration verification failed for ${kind}/${id}: record or photo mismatch. Original data remains intact.`)}
+ }
+ await meta.set({complete:true,version:2,completedAt:firebase.firestore.FieldValue.serverTimestamp(),recordCounts:{items:(old.items||[]).length,outfits:(old.outfits||[]).length,other:(old.other||[]).length}},{merge:true});
+ return true;
+}
+async function loadUserData(user){
+ stopListeners();currentUser=user;cloudReady=false;loading=true;data=defaults();renderLoading();
+ // Read old root document before migration; migration only copies data and does not delete the source.
+ await migrateLegacyIfNeeded(user);
+ const root=userRef(),meta=await root.collection('_meta').doc('settings').get();
+ const legacySnap=await root.get(),legacy=legacySnap.exists?(legacySnap.data()||{}):{};
+ const settings=meta.exists?(meta.data()||{}):{};
+ data.cruise=settings.cruise||legacy.cruise||{name:'My Cruise'};
+ const kinds=['items','outfits','other'];
+ const snapshots=await Promise.all(kinds.map(k=>collectionFor(k).get()));
+ for(let i=0;i<kinds.length;i++){
+  const kind=kinds[i];data[kind]=snapshots[i].docs.map(d=>normaliseRecord({...d.data(),id:d.id})).filter(x=>!x.deleted).map(x=>({...x,photo:x.photo||''}));
+ }
+ // Use local cache only when cloud has no records of a given type. Do not auto-merge local
+ // data into an established cloud account, because stale browser data can resurrect deleted items.
+ const local=localRead();
+ if(local){
+  for(const kind of kinds){
+   if(data[kind].length===0&&Array.isArray(local[kind])&&local[kind].length){
+    // Do not silently upload local records. Show a recovery prompt instead.
+    window.recoveryLocal=local;
+   }
+  }
+ }
+ cloudReady=true;loading=false;if(!window.recoveryLocal)localWrite();startListeners();renderApp();
+ if(window.recoveryLocal)showRecoveryNotice();
+ status('ok','Connected · changes sync to your account');
+}
+function renderLoading(){document.getElementById('app').innerHTML='<div style="max-width:420px;margin:60px auto;padding:24px;text-align:center"><div style="font-size:38px">🧳</div><h2>Loading Cruise Packer…</h2><p class="hint">Checking your saved trip. Please keep this page open.</p></div>'}
+function startListeners(){
+ stopListeners();
+ for(const kind of ['items','outfits','other']){
+  const unsub=collectionFor(kind).onSnapshot(snap=>{
+   if(!cloudReady||!currentUser)return;
+   const remote=snap.docs.map(d=>normaliseRecord({...d.data(),id:d.id})).filter(x=>!x.deleted);
+   // Cloud snapshots are authoritative for the current signed-in user's per-record collection.
+   data[kind]=remote.map(x=>({...x,photo:x.photo||''}));localWrite();
+   if(!st.modal)renderApp();
+  },err=>{console.error('Realtime sync error',kind,err);status('err','Live sync interrupted. Your cloud records have not been deleted. '+(err.code||''))});
+  unsubscribe.push(unsub);
+ }
+ const unsubSettings=userRef().collection('_meta').doc('settings').onSnapshot(snap=>{
+  if(snap.exists&&snap.data().cruise){data.cruise=snap.data().cruise;localWrite();if(!st.modal)renderApp()}
+ },err=>console.warn('Settings sync error',err));
+ unsubscribe.push(unsubSettings);
+}
+function showRecoveryNotice(){show(`<div class="sheettop"><h2>Local data found</h2><button class="close" onclick="closeModal()">×</button></div><p>There are records in this browser cache that are not present in the cloud. To prevent stale data from overwriting or resurrecting records, Cruise Packer has not uploaded them automatically.</p><p class="hint">The original legacy Firebase document is preserved. If you believe these are missing records, export or review them before choosing recovery.</p><button class="btn secondary" style="width:100%;margin-bottom:8px" onclick="downloadLocalRecovery()">Download local recovery JSON</button><button class="btn primary" style="width:100%" onclick="closeModal()">Continue to app</button>`)}
+function downloadLocalRecovery(){const a=document.createElement('a'),blob=new Blob([JSON.stringify(window.recoveryLocal||{},null,2)],{type:'application/json'});a.href=URL.createObjectURL(blob);a.download='cruise-packer-local-recovery.json';a.click();URL.revokeObjectURL(a.href)}
+auth.onAuthStateChanged(async user=>{
+ stopListeners();currentUser=user;cloudReady=false;
+ if(!user){loading=false;renderLogin();return}
+ try{await loadUserData(user)}catch(e){console.error('Safe load/migration stopped',e);cloudReady=false;loading=false;renderLogin('Could not safely load or migrate your saved data. The old trip document has not been deleted. Check connection and Firebase permissions, then try again. '+(e.code||e.message||''))}
+});
+function logout(){stopListeners();cloudReady=false;auth.signOut()}
+function renderApp(){
+ if(!currentUser)return renderLogin();
+ let total=data.items.length+data.other.length,p=data.items.filter(x=>x.packed).length+data.other.filter(x=>x.packed).length;
+ document.getElementById('app').innerHTML=`<div id="syncbar" class="syncbar ${syncState==='ok'?'ok':syncState==='err'?'err':''}">${esc(syncMessage)}${syncState==='err'?'<button onclick="retrySync()">Retry</button>':''}</div><header><div class="head"><div><div class="brand">🧳 Cruise Packer</div><div class="sub">${esc(data.cruise.name||'My Cruise')} · <span onclick="logout()" style="text-decoration:underline;cursor:pointer">Logout</span></div></div><button class="icon" onclick="cruise()">⚙️</button></div></header><main><div class="stats"><div class="stat"><b>${data.outfits.length}</b><span>Outfits</span></div><div class="stat"><b>${data.items.length}</b><span>Wardrobe items</span></div><div class="stat"><b>${total?Math.round(p/total*100):0}%</b><span>Packed</span></div></div><div class="tabs">${[['outfits','Outfits'],['wardrobe','Wardrobe'],['other','Essentials'],['packing','Packing'],['export','Export']].map(([k,v])=>`<button class="tab ${st.tab===k?'active':''}" onclick="st.tab='${k}';renderApp()">${v}</button>`).join('')}</div>${st.tab==='outfits'?outfits():st.tab==='wardrobe'?wardrobe():st.tab==='other'?other():st.tab==='packing'?packing():exports()}</main><nav class="bottom"><button onclick="outfit()">＋ Outfit</button><button onclick="addItem()">＋ Clothing</button><button onclick="addOther()">＋ Essentials</button></nav>${st.modal||''}`;
+}
+function render(){renderApp()}
+function outfits(){let s=`<div class="headrow"><h2>Your outfit plan</h2><button class="btn primary" onclick="outfit()">＋ Create</button></div><p class="hint">Organize your days and evenings by combining your wardrobe items into looks.</p>`;if(!data.outfits.length)return s+`<div class="empty"><div style="font-size:35px">👕 👖 👟</div><h3>Build your first look</h3><p>Add clothing items to your wardrobe first, then combine them into outfits here.</p><button class="btn primary" onclick="outfit()">Build an outfit</button><div class="help" style="text-align:left"><strong>Quick tip</strong>Add tops, bottoms and shoes first. You can also build an outfit around a dress.</div></div>`;return s+['day','ashore','dinner','dressup'].map(o=>{let a=data.outfits.filter(x=>x.occasion===o);return a.length?`<div class="headrow"><h2>${oi(o)} ${ol(o)}</h2><span class="muted">${a.length} looks</span></div><div class="grid">${a.map(card).join('')}</div>`:''}).join('')}
+function card(o){let d=it(o.dress),p=d?[d,null,it(o.shoes)]:[it(o.top),it(o.bottom),it(o.shoes)];return `<article class="outfit"><div class="look">${p.map((x,i)=>`<div class="mini">${pic(x,['👕','👖','👟'][i])}</div>`).join('')}</div><div class="outfitbody"><div class="row between"><div><div class="name">${esc(o.name)}</div><div class="occasion">${ol(o.occasion)}</div></div><button class="btn ${o.packed?'primary':'secondary'}" style="font-size:11px;padding:7px" onclick="toggleOut('${o.id}')">${o.packed?'✓ Ready':'Mark ready'}</button></div><div class="actions"><button class="btn secondary" style="flex:1" onclick="outfit('${o.id}')">Edit look</button><button class="btn danger" onclick="delOut('${o.id}')">Delete</button></div></div></article>`}
+function wardrobe(){let cats=['All','Top','Bottom','Dress','Shorts','Jacket','Shoes'],a=data.items.filter(x=>(st.cat==='All'||x.category===st.cat)&&x.name.toLowerCase().includes(st.q.toLowerCase()));return `<div class="headrow"><h2>Your wardrobe</h2><button class="btn primary" onclick="addItem()">＋ Add</button></div><div class="help"><strong>Photo tip</strong>Take photos against a plain background in good light. This makes outfit combinations easier to scan.</div><input class="search" placeholder="Search clothing…" value="${esc(st.q)}" oninput="st.q=this.value;renderApp()"><div class="filters">${cats.map(c=>`<button class="filter ${st.cat===c?'active':''}" onclick="st.cat='${c}';renderApp()">${c}</button>`).join('')}</div>${a.length?`<div class="grid">${a.map(x=>`<article class="item"><div class="photo">${pic(x,x.category==='Shoes'?'👟':x.category==='Dress'?'👗':['Bottom','Shorts'].includes(x.category)?'👖':'👕')}</div><div class="body"><div class="name">${esc(x.name)}</div><div class="muted">${esc(x.category)}</div><span class="badge ${x.packed?'done':''}">${x.packed?'✓ Packed':'Not packed'}</span><div class="actions"><button class="btn secondary" onclick="addItem('${x.id}')">Edit</button><button class="btn secondary" style="flex:1" onclick="toggleItem('${x.id}')">${x.packed?'Unpack':'Mark packed'}</button><button class="btn danger" onclick="delItem('${x.id}')">×</button></div></div></article>`).join('')}</div>`:`<div class="empty"><h3>No matching clothing</h3><p>Try another filter or add a wardrobe item.</p><button class="btn primary" onclick="addItem()">＋ Add clothing</button></div>`}`}
+function other(){let cats=['All','Underwear','Toiletries','Documents','Electronics','Swimwear','Other'],a=data.other.filter(x=>(st.oc==='All'||x.category===st.oc)&&x.name.toLowerCase().includes(st.oq.toLowerCase()));return `<div class="headrow"><h2>Essentials checklist</h2><button class="btn primary" onclick="addOther()">＋ Add item</button></div><p class="hint">Underwear, toiletries, documents, electronics and everything beyond outfits.</p><input class="search" placeholder="Search essentials…" value="${esc(st.oq)}" oninput="st.oq=this.value;renderApp()"><div class="filters">${cats.map(c=>`<button class="filter ${st.oc===c?'active':''}" onclick="st.oc='${c}';renderApp()">${c}</button>`).join('')}</div>${a.length?`<div class="grid">${a.map(x=>`<div class="panel"><div class="row between"><div><div class="name">${esc(x.name)}</div><div class="muted">${esc(x.category)} · Qty ${x.qty||1}</div><span class="badge ${x.packed?'done':''}">${x.packed?'✓ Packed':'Not packed'}</span></div><button class="btn ${x.packed?'primary':'secondary'}" onclick="toggleOther('${x.id}')">${x.packed?'✓':'Pack'}</button></div><div class="actions"><button class="btn danger" onclick="delOther('${x.id}')">Remove</button></div></div>`).join('')}</div>`:`<div class="empty"><div style="font-size:34px">🪥</div><h3>Your checklist starts here</h3><p>Add essentials so nothing gets forgotten.</p><button class="btn primary" onclick="addOther()">＋ Add an essential</button></div>`}` }
+function packing(){
+ const all=[...data.items.map(x=>({...x,kind:'items'})),...data.other.map(x=>({...x,kind:'other'}))];
+ const packed=all.filter(x=>x.packed).length;
+ const groups=[['Clothing & shoes',all.filter(x=>x.kind==='items')],['Essentials',all.filter(x=>x.kind==='other')]];
+ return `<div class="headrow"><h2>Pack your suitcase</h2><span class="muted">${packed} of ${all.length} packed</span></div><p class="hint">Tick each physical item once, even when it is used in multiple outfits. Changes sync to your other devices after saving.</p><div class="panel" style="margin-bottom:14px"><div class="row between"><b>Packing progress</b><b>${all.length?Math.round(100*packed/all.length):0}%</b></div><div class="progress" style="margin-top:10px"><div style="width:${all.length?100*packed/all.length:0}%"></div></div></div>${groups.map(([label,entries])=>`<div class="headrow"><h2>${label}</h2><span class="muted">${entries.filter(x=>x.packed).length}/${entries.length}</span></div>${entries.length?`<div class="panel" style="padding:5px 14px">${entries.map(x=>`<label style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);cursor:pointer"><input type="checkbox" style="width:21px;height:21px;flex:none;accent-color:var(--brand)" ${x.packed?'checked':''} onchange="packingToggle('${x.kind}','${x.id}',this.checked)"><span style="flex:1;min-width:0"><span style="display:block;font-weight:750;${x.packed?'text-decoration:line-through;opacity:.65':''}">${esc(x.name)}</span><span class="muted">${esc(x.category||'Other')}${x.kind==='other'?' · Qty '+(x.qty||1):''}</span></span></label>`).join('')}</div>`:`<div class="empty">Nothing added yet.</div>`}`).join('')}`;
+}
+function packingToggle(kind,id,checked){const x=data[kind]?.find(x=>x.id===id);if(!x)return;mutateRecord(kind,id,{packed:checked});}
+function outfitUsage(itemId,currentOutfitId){return data.outfits.filter(o=>o.id!==currentOutfitId&&[o.top,o.bottom,o.dress,o.shoes].includes(itemId)).map(o=>o.name||'Unnamed outfit')}
+function exports(){let t=data.items.length+data.other.length,p=data.items.filter(x=>x.packed).length+data.other.filter(x=>x.packed).length,n=t?Math.round(p/t*100):0;return `<div class="headrow"><h2>Export & progress</h2></div><div class="panel"><div class="row between"><b>Packing checklist</b><b>${n}%</b></div><div class="progress" style="margin-top:9px"><div style="width:${n}%"></div></div><p class="hint">Each physical clothing item appears once, even if reused in multiple outfits.</p><div class="row"><button class="btn primary" style="flex:1" onclick="download()">Download TXT</button><button class="btn secondary" style="flex:1" onclick="copy()">Copy list</button></div><button class="btn secondary" style="width:100%;margin-top:8px" onclick="window.print()">Print / Save PDF</button></div><div class="help"><strong>Keep a backup</strong>Use Download TXT for a checklist export. The cloud database is the shared source of truth; don't clear browser data if a sync error is shown.</div>`}
+function show(s){st.modal=`<div class="modal"><section class="sheet">${s}</section></div>`;renderApp()}
+function closeModal(){st.modal=null;delete window.tempPhoto;renderApp()}
+function cruise(){show(`<div class="sheettop"><h2>Cruise details</h2><button class="close" onclick="closeModal()">×</button></div><p class="hint">Name your trip so it's easy to recognise.</p><div class="field"><label>Cruise name</label><input id="cn" value="${esc(data.cruise.name||'')}"></div><div class="row"><div class="field" style="flex:1"><label>Start date</label><input id="cs" type="date" value="${data.cruise.start||''}"></div><div class="field" style="flex:1"><label>End date</label><input id="ce" type="date" value="${data.cruise.end||''}"></div></div><button class="btn primary" style="width:100%" onclick="saveCruise()">Save details</button>`)}
+function saveCruise(){const next={name:document.getElementById('cn').value,start:document.getElementById('cs').value,end:document.getElementById('ce').value};runWrite(async()=>{await userRef().collection('_meta').doc('settings').set({cruise:next,cruiseUpdatedAtMs:Date.now(),updatedAt:firebase.firestore.FieldValue.serverTimestamp()},{merge:true});data.cruise=next;localWrite();closeModal();renderApp()}).catch(()=>{})}
+function addItem(id){let ex=id?it(id):null;window.tempPhoto=ex?.photo||'';show(`<div class="sheettop"><h2>${ex?'Edit clothing':'Add clothing'}</h2><button class="close" onclick="closeModal()">×</button></div><div class="help"><strong>Photo options</strong>Take a live photo with your camera or choose an existing image from your library or files.</div><div class="field"><label>Item name</label><input id="in" value="${esc(ex?.name||'')}" placeholder="e.g. Navy linen shirt"></div><div class="field"><label>Type</label><select id="ic">${['Top','Bottom','Dress','Shorts','Jacket','Shoes'].map(x=>`<option ${ex?.category===x?'selected':''}>${x}</option>`).join('')}</select></div><div class="field"><label>Photo</label><div style="display:flex;gap:8px;margin-bottom:8px"><button class="btn secondary" style="flex:1" onclick="document.getElementById('camInput').click()">📸 Take Photo</button><button class="btn secondary" style="flex:1" onclick="document.getElementById('libInput').click()">🖼️ Choose Library</button></div><input id="camInput" type="file" accept="image/*" capture="environment" style="display:none" onchange="previewPhoto(this)"><input id="libInput" type="file" accept="image/*" style="display:none" onchange="previewPhoto(this)"><div id="photoPreview" style="aspect-ratio:1;max-width:120px;background:#edf0f5;border-radius:10px;display:flex;align-items:center;justify-content:center;overflow:hidden;font-size:24px;margin-top:8px">${window.tempPhoto?`<img src="${esc(window.tempPhoto)}" style="width:100%;height:100%;object-fit:contain">`:'👕'}</div></div><button class="btn primary" style="width:100%" onclick="saveItem('${id||''}')">${ex?'Save changes':'Save to wardrobe'}</button>`)}
+window.previewPhoto=input=>{const f=input.files?.[0];if(!f)return;const img=new Image(),url=URL.createObjectURL(f);img.onload=()=>{let w=img.width,h=img.height,max=800;if(w>max||h>max){if(w>h){h=Math.round(h*max/w);w=max}else{w=Math.round(w*max/h);h=max}}const c=document.createElement('canvas');c.width=w;c.height=h;c.getContext('2d').drawImage(img,0,0,w,h);let quality=.72;window.tempPhoto=c.toDataURL('image/jpeg',quality);while(window.tempPhoto.length>MAX_PHOTO_CHARS&&quality>.3){quality-=.1;window.tempPhoto=c.toDataURL('image/jpeg',quality)}if(window.tempPhoto.length>MAX_PHOTO_CHARS){alert('Photo is too large. Please choose a smaller image.');URL.revokeObjectURL(url);return}const p=document.getElementById('photoPreview');if(p)p.innerHTML=`<img src="${window.tempPhoto}" style="width:100%;height:100%;object-fit:contain">`;URL.revokeObjectURL(url)};img.onerror=()=>URL.revokeObjectURL(url);img.src=url}
+async function saveItem(id){const n=document.getElementById('in').value.trim();if(!n)return alert('Enter an item name.');const c=document.getElementById('ic').value,ex=id?it(id):null,rec={...(ex||{}),id:id||uid(),name:n,category:c,photo:window.tempPhoto!==undefined?window.tempPhoto:(ex?.photo||''),packed:!!ex?.packed};try{await runWrite(async()=>{const saved=await saveRecord('items',rec);upsertLocal('items',saved)});closeModal();st.tab='wardrobe';renderApp()}catch(e){alert('This change was not confirmed in the cloud. Keep this page open and use Retry before trying again.')}}
+function addOther(){show(`<div class="sheettop"><h2>Add an essential</h2><button class="close" onclick="closeModal()">×</button></div><div class="field"><label>Item name</label><input id="on" placeholder="e.g. Sunscreen"></div><div class="row"><div class="field" style="flex:1"><label>Category</label><select id="oc2">${['Underwear','Toiletries','Documents','Electronics','Swimwear','Other'].map(x=>`<option>${x}</option>`).join('')}</select></div><div class="field" style="width:95px"><label>Quantity</label><input id="oq" type="number" min="1" value="1"></div></div><button class="btn primary" style="width:100%" onclick="saveOther()">Add to checklist</button>`)}
+async function saveOther(){const n=document.getElementById('on').value.trim();if(!n)return alert('Enter an item name.');const rec={id:uid(),name:n,category:document.getElementById('oc2').value,qty:Math.max(1,+document.getElementById('oq').value||1),packed:false};try{await runWrite(()=>saveRecord('other',rec));closeModal();st.tab='other';renderApp()}catch(e){alert('Save failed. Keep this page open and retry syncing.')}}
+function outfit(eid){const ex=eid?data.outfits.find(x=>x.id===eid):null,tops=data.items.filter(x=>x.category==='Top'),bots=data.items.filter(x=>['Bottom','Shorts'].includes(x.category)),dresses=data.items.filter(x=>x.category==='Dress'),shoes=data.items.filter(x=>x.category==='Shoes'),s={top:ex?.top||'',bottom:ex?.bottom||'',dress:ex?.dress||'',shoes:ex?.shoes||'',occasion:ex?.occasion||'day',name:ex?.name||''};window.sel=s;function section(title,list,k,icon){let h='<div class="picktitle">'+title+'</div><p class="hint">'+(k==='dress'?'A dress replaces the top and bottom.':k==='shoes'?'Shoes are optional.':'Tap a photo to select a piece.')+'</p>';if(list.length){h+='<div class="pickgrid">'+list.map(x=>'<button class="pick '+(s[k]===x.id?'sel':'')+'" onclick="sel.'+k+'=\''+x.id+'\';'+(k==='dress'?'clearTopBottom();':'')+'drawOutfit()"><div class="pickphoto">'+pic(x,icon)+'</div><div class="pickname">'+esc(x.name)+'</div>'+(outfitUsage(x.id,eid).length?'<div style="padding:0 6px 7px;font-size:10px;color:#855600">Already in: '+esc(outfitUsage(x.id,eid).join(', '))+'</div>':'')+'</button>').join('')+'</div>';if(s[k])h+='<button class="btn secondary" style="margin-top:6px;font-size:11px" onclick="sel.'+k+'=\'\';drawOutfit()">Clear selection</button>'}else h+='<p class="muted">No '+title.toLowerCase()+' yet — add it in Wardrobe first.</p>';return h}window.clearTopBottom=()=>{s.top='';s.bottom=''};window.drawOutfit=()=>{const d=it(s.dress),parts=d?[d,null,it(s.shoes)]:[it(s.top),it(s.bottom),it(s.shoes)];show(`<div class="sheettop"><div><h2>${ex?'Edit your look':'Build an outfit'}</h2><div class="hint">Pick items visually, preview, then save.</div></div><button class="close" onclick="closeModal()">×</button></div><div class="field"><label>Outfit name</label><input id="outname" value="${esc(s.name)}" placeholder="e.g. Port Vila exploring"></div><div class="picktitle">What is this outfit for?</div><div class="chips">${['day','ashore','dinner','dressup'].map(o=>`<button class="chip ${s.occasion===o?'sel':''}" onclick="sel.occasion='${o}';drawOutfit()">${oi(o)}${ol(o)}</button>`).join('')}</div><div class="help"><strong>Need inspiration?</strong>Suggest outfit picks a random combination from your wardrobe. Shuffle tries another one. You can change pieces before saving.</div><div class="suggest"><button class="btn secondary" onclick="suggest()">✨ Suggest outfit</button><button class="btn secondary" onclick="suggest()">🔀 Shuffle</button></div><div class="preview"><b>Your look preview</b><div class="previewlook">${parts.map((x,i)=>`<div class="previewcell">${pic(x,['👕','👖','👟'][i])}</div>`).join('')}</div><div class="muted" style="margin-top:7px">${[d?.name,it(s.top)?.name,it(s.bottom)?.name,it(s.shoes)?.name].filter(Boolean).join(' · ')||'Selected pieces will appear here'}</div></div>${section('1. Tops',tops,'top','👕')}${section('2. Bottoms / shorts',bots,'bottom','👖')}${section('Or choose a dress',dresses,'dress','👗')}${section('3. Shoes (optional)',shoes,'shoes','👟')}<p class="footnote">The same item can appear in multiple looks, but only needs to be packed once.</p><button class="btn primary" style="width:100%;margin-top:12px" onclick="saveOutfit()">Save outfit</button>`)};window.suggest=()=>{if(!tops.length&&!bots.length&&!dresses.length&&!shoes.length)return alert('Add clothing to your wardrobe first.');s.dress='';s.top=tops.length?tops[Math.floor(Math.random()*tops.length)].id:'';s.bottom=bots.length?bots[Math.floor(Math.random()*bots.length)].id:'';s.shoes=shoes.length?shoes[Math.floor(Math.random()*shoes.length)].id:'';if(dresses.length&&Math.random()<.25){s.dress=dresses[Math.floor(Math.random()*dresses.length)].id;s.top='';s.bottom=''}drawOutfit()};window.saveOutfit=async()=>{const n=document.getElementById('outname')?.value.trim()||ol(s.occasion)+' outfit';if(!s.dress&&(!s.top||!s.bottom))return alert('Choose a top and bottom, or choose a dress.');const rec={...(ex||{}),id:eid||uid(),name:n,occasion:s.occasion,top:s.top,bottom:s.bottom,dress:s.dress,shoes:s.shoes,packed:!!ex?.packed};try{await runWrite(()=>saveRecord('outfits',rec));closeModal();st.tab='outfits';renderApp()}catch(e){alert('Save failed. Keep this page open and retry syncing.')}};drawOutfit()}
+async function mutateRecord(kind,id,patch){const current=data[kind].find(x=>x.id===id);if(!current)return;try{await runWrite(()=>saveRecord(kind,{...current,...patch,id}))}catch(e){alert('Change not confirmed in cloud. Keep this page open and retry.')}}
+function toggleItem(i){const x=it(i);if(x)mutateRecord('items',i,{packed:!x.packed})}
+function delItem(i){if(confirm('Remove this wardrobe item?'))runWrite(()=>tombstone('items',i)).then(renderApp).catch(()=>alert('Delete was not confirmed. Please retry sync.'))}
+function toggleOther(i){const x=data.other.find(x=>x.id===i);if(x)mutateRecord('other',i,{packed:!x.packed})}
+function delOther(i){if(confirm('Remove this item?'))runWrite(()=>tombstone('other',i)).then(renderApp).catch(()=>alert('Delete was not confirmed. Please retry sync.'))}
+function toggleOut(i){const x=data.outfits.find(x=>x.id===i);if(x)mutateRecord('outfits',i,{packed:!x.packed})}
+function delOut(i){if(confirm('Delete this outfit?'))runWrite(()=>tombstone('outfits',i)).then(renderApp).catch(()=>alert('Delete was not confirmed. Please retry sync.'))}
+function listText(){let s=`CRUISE PACKING LIST\n${data.cruise.name||'My Cruise'}\n\n`;['day','ashore','dinner','dressup'].forEach(o=>{const a=data.outfits.filter(x=>x.occasion===o);if(a.length){s+=ol(o).toUpperCase()+' OUTFITS\n';a.forEach(x=>s+=`- ${x.name}: ${[x.dress?it(x.dress)?.name:it(x.top)?.name,it(x.bottom)?.name,it(x.shoes)?.name].filter(Boolean).join(', ')}\n`);s+='\n'}});s+='CLOTHING / SHOES\n';data.items.forEach(x=>s+=`[${x.packed?'x':' '}] ${x.name} (${x.category})\n`);s+='\nESSENTIALS\n';data.other.forEach(x=>s+=`[${x.packed?'x':' '}] ${x.name} (${x.category}) x${x.qty||1}\n`);return s}
+function download(){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([listText()],{type:'text/plain'}));a.download='cruise-packing-list.txt';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+async function copy(){try{await navigator.clipboard.writeText(listText());alert('Checklist copied.')}catch(e){alert('Use Download TXT if copy is unavailable.')}}
+</script></body></html>
