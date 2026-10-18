@@ -3,11 +3,57 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#142238">
+<meta name="theme-color" content="#087f8c">
 <link rel="manifest" href="manifest.json">
-<title>Cruise Packer</title>
+<title>Cruise Packer — Tropical Edition</title>
 <style>
 :root{--bg:#f4f6fa;--ink:#17253b;--muted:#68758a;--line:#e2e7ef;--brand:#5b58e8}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}button{cursor:pointer}.wrap{max-width:940px;margin:auto;padding-bottom:95px}header{padding:22px 18px;background:linear-gradient(135deg,#142238,#2b4262);color:#fff}.head{display:flex;justify-content:space-between;align-items:center}.brand{font-size:23px;font-weight:850}.sub{font-size:12px;opacity:.75}.icon{background:#ffffff20;color:#fff;border:1px solid #ffffff30;border-radius:12px;padding:9px}main{padding:16px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:15px}.stat,.panel,.item,.outfit{background:white;border:1px solid var(--line);border-radius:16px}.stat{padding:12px}.stat b{font-size:22px}.stat span{display:block;color:var(--muted);font-size:11px}.tabs,.filters,.chips{display:flex;gap:7px;overflow:auto;margin-bottom:14px}.tab,.filter,.chip{border:1px solid var(--line);background:white;border-radius:999px;padding:9px 13px;white-space:nowrap}.tab.active{background:var(--ink);color:white}.filter{font-size:12px;padding:7px 11px}.filter.active,.chip.sel{background:#eeedff;color:#4d49c8;border-color:#d4d2ff}.headrow{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:18px 0 8px}.headrow h2{font-size:18px;margin:0}.hint,.muted{font-size:12px;color:var(--muted)}.btn{border:0;border-radius:12px;padding:10px 13px;font-weight:750}.primary{background:var(--brand);color:white}.secondary{background:#edf0f6;color:var(--ink)}.danger{background:#fff0f0;color:#b4232f}.search{width:100%;padding:12px;border:1px solid var(--line);border-radius:12px;margin-bottom:9px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.item,.outfit{overflow:hidden}.photo{aspect-ratio:1;background:#edf0f5;display:flex;align-items:center;justify-content:center;font-size:34px;overflow:hidden}.photo img,.mini img,.pickphoto img,.previewcell img{width:100%;height:100%;object-fit:contain}.body{padding:10px}.name{font-weight:800;overflow-wrap:anywhere}.badge{display:inline-block;border-radius:99px;padding:4px 8px;margin-top:6px;font-size:10px;font-weight:800;background:#fff1d0;color:#855600}.badge.done{background:#dff7ed;color:#087f5b}.look,.previewlook{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;padding:10px 10px 0}.mini,.previewcell{aspect-ratio:1;background:#edf0f5;border-radius:10px;display:flex;align-items:center;justify-content:center;overflow:hidden;font-size:25px}.outfitbody{padding:10px}.occasion{font-size:10px;color:var(--brand);font-weight:900;text-transform:uppercase}.actions{display:flex;gap:7px;margin-top:9px}.actions .btn{font-size:12px;padding:8px}.empty{text-align:center;padding:28px 18px;background:white;border:1px dashed #cfd6e3;border-radius:17px;color:var(--muted)}.empty h3{color:var(--ink);margin:8px 0 4px}.help{background:#f0efff;border:1px solid #e1dfff;border-radius:12px;padding:11px;margin:10px 0 14px;font-size:12px;color:#4b4a7a}.help strong{display:block;color:#37357c;margin-bottom:3px}.bottom{position:fixed;bottom:0;left:0;right:0;background:#ffffffed;backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:9px max(10px,calc((100vw - 940px)/2 + 10px)) calc(9px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.bottom button{border:0;border-radius:12px;padding:11px 4px;background:#edf0f6;font-weight:850;font-size:12px}.bottom button:first-child{background:var(--brand);color:white}.field{margin-bottom:12px}.field label{display:block;font-size:12px;font-weight:800;margin-bottom:6px}.field input,.field select{width:100%;padding:11px;border:1px solid var(--line);border-radius:11px;background:white}.row{display:flex;gap:8px;align-items:center}.between{justify-content:space-between}.panel{padding:15px}.progress{height:8px;background:#e8ebf1;border-radius:9px;overflow:hidden}.progress div{height:100%;background:var(--brand)}.modal{position:fixed;inset:0;background:#101c2f99;z-index:50;display:flex;align-items:flex-end;justify-content:center}.sheet{background:white;width:min(940px,100%);max-height:94vh;overflow:auto;border-radius:24px 24px 0 0;padding:17px 16px calc(22px + env(safe-area-inset-bottom))}.sheettop{display:flex;justify-content:space-between;align-items:center;gap:10px}.sheettop h2{font-size:20px;margin:0}.close{border:0;border-radius:50%;width:36px;height:36px;background:#edf0f6;font-size:21px}.chips{margin:12px 0}.chip{font-size:12px;font-weight:750}.suggest{display:flex;gap:8px;margin-bottom:12px}.suggest button{flex:1}.preview{background:linear-gradient(135deg,#f0efff,#f7f8fc);padding:12px;border-radius:16px;margin-bottom:14px}.picktitle{font-weight:850;margin:15px 0 4px}.pickgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.pick{border:2px solid var(--line);border-radius:12px;background:white;padding:0;overflow:hidden;text-align:left;min-width:0}.pick.sel{border-color:var(--brand)}.pickphoto{aspect-ratio:1;background:#edf0f5;display:flex;align-items:center;justify-content:center;overflow:hidden;font-size:25px}.pickname{padding:6px;font-size:11px;font-weight:800;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.footnote{font-size:11px;color:var(--muted);margin-top:12px}.syncbar{position:sticky;top:0;z-index:20;background:#fff7d6;color:#694b00;padding:7px 12px;font-size:12px;text-align:center;border-bottom:1px solid #f1dda0}.syncbar.ok{background:#e2f8ec;color:#08633f;border-color:#b8e8ce}.syncbar.err{background:#fff0f0;color:#a31d2d;border-color:#f2c5c9}.syncbar button{margin-left:8px;border:0;border-radius:8px;padding:4px 8px;background:#fff;font-weight:800;color:inherit}@media(min-width:650px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.pickgrid{grid-template-columns:repeat(4,minmax(0,1fr))}.sheet{border-radius:24px;margin:20px;max-height:calc(100vh - 40px)}.modal{align-items:center}}@media print{header,.tabs,.bottom,.btn,.filters,.search,.stats,.help,nav,.syncbar{display:none!important}body{background:white;color:black}.wrap{max-width:100%!important;padding:0!important}.panel{border:1px solid #ddd!important;box-shadow:none!important}}
+
+/* V2.1 visual-only polish; all Firebase persistence and record operations unchanged. */
+:root{--bg:#f3f6fa;--ink:#182a42;--muted:#6d7d91;--line:#e0e7f0;--brand:#5b58e8}
+body{letter-spacing:-.01em}.wrap{max-width:1160px;padding-bottom:104px}header{border-radius:0 0 20px 20px;padding:25px 22px;background:linear-gradient(115deg,#15263e,#2b4767)}main{padding:18px 20px 28px}
+.brand{letter-spacing:-.045em;font-size:25px}.sub{margin-top:3px;font-size:13px}.stats{gap:12px;margin-bottom:17px}.stat{padding:17px 18px;box-shadow:0 3px 12px #182a4205}.stat b{font-size:27px;letter-spacing:-.05em}.stat span{font-size:12px;margin-top:3px}.tabs{gap:9px;padding:2px 0 5px}.tab{padding:10px 16px;font-weight:650}.tab.active{background:#182a42}.headrow{margin-top:24px;margin-bottom:11px}.headrow h2{font-size:20px;letter-spacing:-.035em}.hint{font-size:13px}.grid{gap:13px}.outfit,.item,.panel{box-shadow:0 3px 15px #182a4206}.outfit{border-radius:19px}.look{gap:8px;padding:12px 12px 0}.mini{border-radius:12px}.outfitbody{padding:12px}.name{letter-spacing:-.02em}.btn{transition:background .15s ease,transform .15s ease}.btn:active,.tab:active{transform:scale(.98)}button:focus-visible,input:focus-visible{outline:3px solid #aaa7ff;outline-offset:2px}.occasion{letter-spacing:.03em}.actions{gap:8px}.bottom{max-width:1160px;margin:auto;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;padding:9px 12px calc(9px + env(safe-area-inset-bottom));box-shadow:0 -8px 28px #182a4208}.bottom button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:transparent;font-size:17px;color:#5e7087;padding:7px 3px}.bottom button span{font-size:10px;font-weight:750}.bottom button:first-child{background:transparent;color:#5e7087}.bottom button.active{background:#eef0ff;color:#4e49c8}.bottom button.add-main{background:var(--brand);color:#fff;border-radius:14px}.bottom button.add-main span{color:white}.cruise-intro{display:flex;align-items:center;justify-content:space-between;gap:15px;background:linear-gradient(125deg,#e9eeff,#f9fbff);border:1px solid #dce4f7;border-radius:20px;padding:18px 20px;margin-bottom:15px}.eyebrow{font-size:10px;font-weight:850;color:#5955bf;letter-spacing:.12em}.intro-title{font-size:19px;font-weight:850;letter-spacing:-.035em;margin:5px 0 3px}.intro-sub{font-size:12px;color:#697b93}.intro-progress{width:75px;height:75px;flex:none;border-radius:50%;background:white;border:6px solid #dcdafa;display:flex;align-items:center;justify-content:center;flex-direction:column}.intro-progress strong{font-size:19px;color:#4f4bc9;line-height:1.1}.intro-progress span{font-size:10px;color:#64748b}.add-options{display:grid;gap:10px;margin-top:16px}.add-options .btn{text-align:left;padding:15px}.packing-summary{margin:15px 0 20px}.packing-filters{margin:15px 0 0}.pack-category{border:1px solid var(--line);background:white;border-radius:17px;margin:12px 0;overflow:hidden;box-shadow:0 3px 12px #182a4205}.pack-category summary{list-style:none;cursor:pointer;padding:16px;display:flex;align-items:center;justify-content:space-between;font-weight:850}.pack-category summary::-webkit-details-marker{display:none}.pack-items{padding:0 16px 5px}.pack-entry{display:flex;align-items:center;gap:13px;padding:12px 0;border-top:1px solid var(--line);cursor:pointer}.pack-entry input{width:21px;height:21px;flex:none;accent-color:var(--brand)}.pack-entry-text{display:flex;flex-direction:column;gap:2px;min-width:0}.pack-entry-text strong{overflow-wrap:anywhere}.pack-entry-text strong.is-packed{text-decoration:line-through;opacity:.55}.pack-empty{padding:14px 16px;color:var(--muted);font-size:13px}
+@media(max-width:580px){main{padding:15px 13px 25px}.stats{gap:7px}.stat{padding:12px 10px}.stat b{font-size:23px}.stat span{font-size:10px}.cruise-intro{padding:13px}.intro-title{font-size:16px}.intro-progress{width:65px;height:65px}.bottom{gap:3px}.bottom button span{font-size:9px}.grid{gap:9px}.look{gap:5px;padding:8px 8px 0}.outfitbody{padding:9px}.actions .btn{font-size:11px}}
+@media print{.cruise-intro,.packing-filters,.bottom{display:none!important}}
+
+/* Premium design; data and sync logic unchanged. */
+:root{--bg:#f5f5f7;--ink:#1d1d1f;--muted:#747780;--line:#e5e5ea;--brand:#4762c7}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;letter-spacing:-.018em}
+.wrap{max-width:1380px;margin:auto;padding-bottom:104px}
+header{background:#fff;color:#1d1d1f;border-radius:0;padding:18px clamp(18px,4vw,56px);border-bottom:1px solid #e8e8ed}
+.brand{font-size:22px;font-weight:760;letter-spacing:-.055em;display:flex;align-items:center;gap:9px}
+.brand-mark{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:11px;background:#1d1d1f;color:white;font-size:20px}
+.brand-edition{font-size:9px;letter-spacing:.16em;background:#f1f1f5;color:#7a7b86;border-radius:6px;padding:5px 7px;margin-left:3px;font-weight:800}
+.sub{color:#777b84;opacity:1;margin:3px 0 0 44px;font-size:12px}
+.icon{background:#f3f3f5;color:#444;border:1px solid #e8e8ed;border-radius:50%;width:39px;height:39px}
+main{padding:26px clamp(16px,3.5vw,48px) 50px}
+.studio-hero{display:flex;justify-content:space-between;align-items:center;gap:28px;background:#1b2436;color:white;border-radius:28px;padding:35px clamp(22px,4vw,52px);min-height:260px;position:relative;overflow:hidden;margin-bottom:20px}
+.studio-hero:before{content:"";position:absolute;right:-110px;top:-210px;width:520px;height:520px;border:1px solid #ffffff14;border-radius:50%;box-shadow:0 0 0 70px #ffffff07,0 0 0 150px #ffffff04;pointer-events:none}
+.hero-copy,.hero-progress{position:relative;z-index:1}.hero-kicker{font-size:10px;font-weight:780;letter-spacing:.2em;color:#b9c5e3;display:flex;align-items:center;gap:9px}.hero-dot{height:7px;width:7px;background:#a6e0ca;border-radius:50%}
+.studio-hero h1{font-size:clamp(29px,4vw,49px);font-weight:750;letter-spacing:-.055em;line-height:1.1;margin:18px 0 10px}
+.studio-hero p{font-size:14px;color:#bfc8d9;margin:0 0 23px}.hero-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.hero-button{border:0;border-radius:12px;background:#fff;color:#1b2436;padding:12px 17px;font-weight:760}.hero-button span{margin-left:12px}.hero-link{background:transparent;border:0;color:#e0e6f3;font-weight:680;padding:10px}
+.hero-progress{display:flex;flex-direction:column;align-items:center;gap:11px;color:#c7d0e1;font-size:11px;min-width:145px}
+.hero-ring{height:136px;width:136px;border-radius:50%;background:conic-gradient(#a4c5ff calc(var(--pct)*1%),#ffffff25 0);padding:9px;display:grid;place-items:center}
+.hero-ring>div{height:100%;width:100%;border-radius:50%;background:#1b2436;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.hero-ring strong{color:white;font-size:31px;letter-spacing:-.07em}.hero-ring small{font-size:9px;letter-spacing:.2em;color:#aebbd0}
+.stats{gap:13px;margin-bottom:28px}.stat{padding:20px 22px;border:1px solid #e8e8ee;border-radius:18px;display:flex;align-items:center;gap:17px;box-shadow:0 3px 18px #151b2905}.stat-icon{width:43px;height:43px;background:#f2f3f7;color:#536176;border-radius:14px;display:grid;place-items:center;font-size:22px;font-weight:600}.stat b{font-size:28px;font-weight:750;display:block;line-height:1.05}.stat span{font-size:12px;margin-top:5px}
+.tabs{gap:5px;margin:0 0 25px;padding:5px;background:#eaeaef;border-radius:14px;overflow-x:auto}.nav-label{display:none}.tab{border:0;background:transparent;border-radius:10px;padding:11px 15px;color:#5c5e68;font-size:13px;font-weight:720;display:flex;gap:9px;align-items:center;justify-content:center;flex:1}.tab.active{background:white;color:#1d1d1f;box-shadow:0 2px 9px #20233312}.nav-glyph{font-size:16px;font-weight:500}
+.headrow h2{font-size:23px;font-weight:750;letter-spacing:-.045em}.headrow{margin:24px 0 13px}.hint{font-size:13px}.grid{gap:16px}.outfit,.item,.panel{border-color:#e6e7ed;box-shadow:0 5px 22px #1d243008;border-radius:20px}.outfit{overflow:hidden}.look{gap:8px;padding:12px 12px 0}.mini{border-radius:12px;background:#f1f2f6}.outfitbody{padding:13px}.name{font-size:14px;font-weight:750}.occasion{color:#6074ad;font-size:10px;letter-spacing:.08em}.btn{border-radius:11px}.primary{background:#3f5cb7}.secondary{background:#f0f1f5}.danger{background:#fff1f0}.actions .btn{font-size:12px}.badge.done{background:#e5f5ed;color:#23764d}
+.pack-category{box-shadow:0 5px 22px #1d243008;border-radius:18px}.pack-entry input{accent-color:#3f5cb7}.filter.active,.chip.sel{background:#e9eefb;color:#3655ac;border-color:#cdd9f4}.progress div{background:#3f5cb7}.bottom{max-width:none;box-shadow:0 -6px 24px #1418220b}.bottom button.add-main{background:#3f5cb7}
+@media(min-width:1000px){main{padding-left:270px}.tabs{position:absolute;top:148px;left:max(18px,calc((100vw - 1380px)/2 + 28px));width:205px;display:flex;flex-direction:column;align-items:stretch;gap:5px;background:transparent;padding:0;overflow:visible}.nav-label{display:block;font-size:10px;letter-spacing:.18em;font-weight:800;color:#9a9da6;margin:0 0 12px 13px}.tab{justify-content:flex-start;flex:none;padding:13px 16px;border-radius:12px;font-size:14px}.tab.active{background:#e9edf6;color:#283c65;box-shadow:none}.nav-glyph{width:23px;text-align:center}.bottom{display:none}.wrap{padding-bottom:20px}}
+@media(max-width:650px){header{padding:13px 17px}.brand{font-size:20px}.brand-edition{display:none}.sub{margin-left:42px}.studio-hero{padding:24px 20px;border-radius:22px;min-height:220px;gap:10px}.studio-hero h1{font-size:29px;margin:14px 0 8px}.studio-hero p{font-size:12px;max-width:190px}.hero-button{padding:11px 13px;font-size:12px}.hero-link{display:none}.hero-progress{min-width:92px}.hero-ring{width:89px;height:89px;padding:6px}.hero-ring strong{font-size:23px}.hero-ring small{font-size:7px}.hero-progress>span{font-size:9px}.stats{gap:8px;margin-bottom:17px}.stat{padding:13px 9px;gap:6px;display:block;text-align:center}.stat-icon{display:none}.stat b{font-size:24px}.stat span{font-size:10px}.tabs{display:none}.headrow h2{font-size:20px}.grid{gap:10px}.outfitbody{padding:10px}.look{padding:9px 9px 0;gap:6px}.bottom{padding:8px 8px calc(8px + env(safe-area-inset-bottom))}.bottom button.active{background:#e9edf6;color:#283c65}}
+@media print{.studio-hero,.hero-actions,.tabs,.bottom{display:none!important}main{padding-left:0!important}}
+
+/* Itinerary and weather, read-only and independent of Firebase */
+.voyage-panel{background:#fff;border:1px solid #e5e8ef;border-radius:22px;padding:20px 22px;margin:0 0 20px;box-shadow:0 5px 22px #18294308}
+.voyage-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.voyage-heading h2{font-size:20px;letter-spacing:-.04em;margin:0;color:#1b2436}.voyage-heading p{font-size:12px;color:#777f8d;margin:3px 0 0}
+.voyage-scroll{display:flex;gap:9px;overflow-x:auto;padding:2px 0 8px;scroll-snap-type:x proximity}
+.voyage-day{border:1px solid #e8eaf0;background:#fafbfe;border-radius:15px;min-width:136px;max-width:150px;flex:1 0 136px;padding:13px 11px;scroll-snap-align:start}
+.voyage-day.port{background:#f4f7ff;border-color:#dce5fb}.voyage-date{font-size:11px;font-weight:750;color:#777e8d}.voyage-place{font-size:13px;font-weight:800;color:#222d42;line-height:1.3;min-height:35px;margin-top:8px}.voyage-weather{font-size:12px;font-weight:700;color:#344f73;margin-top:7px}.voyage-time{font-size:10px;color:#737d90;margin-top:4px}.voyage-advice{margin-top:10px;padding:12px 14px;background:#f4f6fb;border-radius:13px;color:#45536a;font-size:12px;line-height:1.55}
+.voyage-refresh{border:1px solid #dfe4ee;background:white;border-radius:10px;padding:8px 12px;font-size:12px;font-weight:750;color:#334560}
+@media(max-width:650px){.voyage-panel{padding:16px 14px;border-radius:18px}.voyage-day{min-width:124px;flex-basis:124px}.voyage-heading h2{font-size:18px}}
 </style>
 </head>
 <body><div class="wrap" id="app"></div>
@@ -20,7 +66,7 @@ firebase.initializeApp(firebaseConfig);
 const auth=firebase.auth(),db=firebase.firestore();
 const KEY='cruisePackerV1';
 let data={cruise:{name:'My Cruise'},items:[],outfits:[],other:[]},currentUser=null,cloudReady=false,loading=true;
-let st={tab:'outfits',q:'',cat:'All',oq:'',oc:'All',modal:null};
+let st={tab:'outfits',q:'',cat:'All',oq:'',oc:'All',modal:null,packingFilter:'all'};
 let unsubscribe=[],syncState='loading',syncMessage='Loading your saved trip…',pendingWrites=0,writeQueue=Promise.resolve(),migrationRunning=false;
 const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,9);
 const it=id=>data.items.find(x=>x.id===id);
@@ -192,21 +238,62 @@ auth.onAuthStateChanged(async user=>{
  try{await loadUserData(user)}catch(e){console.error('Safe load/migration stopped',e);cloudReady=false;loading=false;renderLogin('Could not safely load or migrate your saved data. The old trip document has not been deleted. Check connection and Firebase permissions, then try again. '+(e.code||e.message||''))}
 });
 function logout(){stopListeners();cloudReady=false;auth.signOut()}
+
+const voyageDays=[
+ ['2026-10-22','Brisbane','Brisbane, Australia',-27.47,153.03,'Departs 4:00 pm'],
+ ['2026-10-23','At sea',null,null,null,'Cruising'],
+ ['2026-10-24','At sea',null,null,null,'Cruising'],
+ ['2026-10-25','Port Vila','Port Vila, Vanuatu',-17.734,168.322,'7:00 am – 5:00 pm · Tender'],
+ ['2026-10-26','Mystery Island','Mystery Island, Vanuatu',-20.249,169.775,'7:00 am – 5:00 pm · Tender'],
+ ['2026-10-27','Nouméa','Nouméa, New Caledonia',-22.276,166.458,'7:00 am – 5:00 pm · Dock'],
+ ['2026-10-28','At sea',null,null,null,'Cruising'],
+ ['2026-10-29','At sea',null,null,null,'Cruising'],
+ ['2026-10-30','Brisbane','Brisbane, Australia',-27.47,153.03,'Arrives 6:30 am']
+];
+const weatherCache={};let weatherLoading=false,weatherLastCheck=0;
+function weatherIcon(code){return code===0?'☀️':code<=3?'⛅':code<=48?'🌫️':code<=67?'🌧️':code<=77?'🌨️':code<=82?'🌦️':'⛈️'}
+function weatherSummary(date,place){const w=weatherCache[place]?.[date];if(!w)return '<span style="color:#8992a3">Forecast pending</span>';return `${weatherIcon(w.code)} ${Math.round(w.max)}° / ${Math.round(w.min)}°`+(w.rain>=40?` · ${w.rain}% rain`:'')}
+function voyagePanel(){const forecastCount=voyageDays.filter(d=>d[2]&&weatherCache[d[2]]?.[d[0]]).length;
+ const rainy=voyageDays.some(d=>d[2]&&weatherCache[d[2]]?.[d[0]]?.rain>=40);
+ const advice=forecastCount?`Packing tip: ${rainy?'Rain is possible at one or more ports — consider a lightweight rain jacket.':'Keep a lightweight rain jacket handy for tropical showers.'} Shorts, breathable tops, sun protection and comfortable shoes are useful for shore days.`:'Packing tip: Plan breathable tops, shorts, sun protection, comfortable walking shoes and a light rain layer for shore days.';
+ return `<section class="voyage-panel" aria-label="Cruise itinerary and weather"><div class="voyage-heading"><div><h2>🛳️ Your voyage & weather</h2><p>Quantum of the Seas · 22–30 October 2026 · 8 nights</p></div><button class="voyage-refresh" onclick="refreshVoyageWeather()">↻ Refresh weather</button></div><div class="voyage-scroll">${voyageDays.map(d=>{const day=new Date(d[0]+'T12:00:00');const date=day.toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'short'});return `<article class="voyage-day ${d[2]?'port':''}"><div class="voyage-date">${date}</div><div class="voyage-place">${esc(d[1])}</div><div class="voyage-weather">${d[2]?weatherSummary(d[0],d[2]):'🌊 Sea day'}</div><div class="voyage-time">${esc(d[5])}</div></article>`}).join('')}</div><div class="voyage-advice">${advice}<div style="margin-top:5px;font-size:10px;color:#7b8596">Weather: Open-Meteo daily forecast for ports (not shipboard weather). Available only within the forecast window; subject to change. Requires internet.</div></div></section>`;
+}
+async function refreshVoyageWeather(){weatherLastCheck=0;await ensureVoyageWeather(true)}
+async function ensureVoyageWeather(force=false){if(weatherLoading||(!force&&Date.now()-weatherLastCheck<60*60*1000))return;weatherLoading=true;weatherLastCheck=Date.now();
+ try{const unique=[...new Map(voyageDays.filter(d=>d[2]).map(d=>[d[2],d])).values()];await Promise.all(unique.map(async d=>{
+ const url=`https://api.open-meteo.com/v1/forecast?latitude=${d[3]}&longitude=${d[4]}&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=auto&forecast_days=16`;
+ const response=await fetch(url,{cache:'no-store'});if(!response.ok)throw new Error('Forecast unavailable');const j=await response.json();const daily=j.daily||{};const map={};(daily.time||[]).forEach((date,i)=>map[date]={code:daily.weather_code?.[i]??3,max:daily.temperature_2m_max?.[i]??0,min:daily.temperature_2m_min?.[i]??0,rain:daily.precipitation_probability_max?.[i]??0});weatherCache[d[2]]=map;
+ }));}catch(e){console.warn('Weather unavailable; packing data unaffected',e)}finally{weatherLoading=false;if(currentUser&&cloudReady){const panel=document.querySelector('.voyage-panel');if(panel)panel.outerHTML=voyagePanel()}}
+}
+
 function renderApp(){
  if(!currentUser)return renderLogin();
  let total=data.items.length+data.other.length,p=data.items.filter(x=>x.packed).length+data.other.filter(x=>x.packed).length;
- document.getElementById('app').innerHTML=`<div id="syncbar" class="syncbar ${syncState==='ok'?'ok':syncState==='err'?'err':''}">${esc(syncMessage)}${syncState==='err'?'<button onclick="retrySync()">Retry</button>':''}</div><header><div class="head"><div><div class="brand">🧳 Cruise Packer</div><div class="sub">${esc(data.cruise.name||'My Cruise')} · <span onclick="logout()" style="text-decoration:underline;cursor:pointer">Logout</span></div></div><button class="icon" onclick="cruise()">⚙️</button></div></header><main><div class="stats"><div class="stat"><b>${data.outfits.length}</b><span>Outfits</span></div><div class="stat"><b>${data.items.length}</b><span>Wardrobe items</span></div><div class="stat"><b>${total?Math.round(p/total*100):0}%</b><span>Packed</span></div></div><div class="tabs">${[['outfits','Outfits'],['wardrobe','Wardrobe'],['other','Essentials'],['packing','Packing'],['export','Export']].map(([k,v])=>`<button class="tab ${st.tab===k?'active':''}" onclick="st.tab='${k}';renderApp()">${v}</button>`).join('')}</div>${st.tab==='outfits'?outfits():st.tab==='wardrobe'?wardrobe():st.tab==='other'?other():st.tab==='packing'?packing():exports()}</main><nav class="bottom"><button onclick="outfit()">＋ Outfit</button><button onclick="addItem()">＋ Clothing</button><button onclick="addOther()">＋ Essentials</button></nav>${st.modal||''}`;
+ document.getElementById('app').innerHTML=`<div id="syncbar" class="syncbar ${syncState==='ok'?'ok':syncState==='err'?'err':''}">${esc(syncMessage)}${syncState==='err'?'<button onclick="retrySync()">Retry</button>':''}</div><section class="studio-hero"><div class="hero-tools"><button type="button" onclick="cruise()" title="Cruise settings">⚙ Settings</button><button type="button" onclick="logout()" title="Sign out">↪ Logout</button></div><div class="hero-copy"><span class="hero-kicker"><span class="hero-dot"></span> YOUR CRUISE</span><h1>${esc(data.cruise.name||'My Cruise')}</h1><p><span class="hero-countdown">⏳ ${cruiseCountdown()}</span><span class="hero-subtitle">Your outfits, wardrobe and packing in one place.</span></p><div class="hero-actions"><button class="hero-button" onclick="st.tab='packing';renderApp()">Continue packing <span>↗</span></button><button class="hero-link" onclick="showAddMenu()">＋ Add something</button></div></div><div class="hero-progress"><div class="hero-ring" style="--pct:${total?Math.round(p/total*100):0}"><div><strong>${total?Math.round(p/total*100):0}%</strong><small>PACKED</small></div></div><span>${p} of ${total} items ready</span></div></section><main><div class="tabs"><span class="nav-label">YOUR CRUISE</span>${[['outfits','👕','Outfits'],['wardrobe','🧥','Wardrobe'],['other','🧴','Essentials'],['packing','☑️','Packing'],['export','📤','Export']].map(([k,i,v])=>`<button class="tab ${st.tab===k?'active':''}" onclick="st.tab='${k}';renderApp()"><span class="nav-glyph">${i}</span>${v}</button>`).join('')}</div>${voyagePanel()}<div class="stats"><div class="stat"><div class="stat-icon">◈</div><div><b>${data.outfits.length}</b><span>Planned outfits</span></div></div><div class="stat"><div class="stat-icon">▦</div><div><b>${data.items.length}</b><span>Wardrobe pieces</span></div></div><div class="stat"><div class="stat-icon">✓</div><div><b>${total-p}</b><span>Still to pack</span></div></div></div>${st.tab==='outfits'?outfits():st.tab==='wardrobe'?wardrobe():st.tab==='other'?other():st.tab==='packing'?packing():exports()}</main><nav class="bottom quick-add" aria-label="Quick add"><button onclick="addItem()">＋ <span>Add clothing</span></button><button onclick="outfit()">👕 <span>Make outfit</span></button><button onclick="addOther()">＋ <span>Add essential</span></button></nav>${st.modal||''}`;
+ ensureVoyageWeather();
 }
 function render(){renderApp()}
+function cruiseCountdown(){
+ const raw=(data.cruise&&data.cruise.start)||'2026-10-22';
+ const parts=String(raw).slice(0,10).split('-').map(Number);
+ if(parts.length!==3||parts.some(n=>!Number.isFinite(n)))return '22 OCT';
+ const now=new Date(),today=Date.UTC(now.getFullYear(),now.getMonth(),now.getDate());
+ const departure=Date.UTC(parts[0],parts[1]-1,parts[2]);
+ const days=Math.round((departure-today)/86400000);
+ return days>0?days+' DAYS TO GO':days===0?'SAILING TODAY':'BON VOYAGE';
+}
+function showAddMenu(){show(`<div class="sheettop"><h2>Add to Cruise Packer</h2><button class="close" onclick="closeModal()">×</button></div><p class="hint">What would you like to add?</p><div class="add-options"><button class="btn primary" onclick="closeModal();outfit()">＋ Create outfit</button><button class="btn secondary" onclick="closeModal();addItem()">＋ Add clothing</button><button class="btn secondary" onclick="closeModal();addOther()">＋ Add essential</button></div>`)}
 function outfits(){let s=`<div class="headrow"><h2>Your outfit plan</h2><button class="btn primary" onclick="outfit()">＋ Create</button></div><p class="hint">Organize your days and evenings by combining your wardrobe items into looks.</p>`;if(!data.outfits.length)return s+`<div class="empty"><div style="font-size:35px">👕 👖 👟</div><h3>Build your first look</h3><p>Add clothing items to your wardrobe first, then combine them into outfits here.</p><button class="btn primary" onclick="outfit()">Build an outfit</button><div class="help" style="text-align:left"><strong>Quick tip</strong>Add tops, bottoms and shoes first. You can also build an outfit around a dress.</div></div>`;return s+['day','ashore','dinner','dressup'].map(o=>{let a=data.outfits.filter(x=>x.occasion===o);return a.length?`<div class="headrow"><h2>${oi(o)} ${ol(o)}</h2><span class="muted">${a.length} looks</span></div><div class="grid">${a.map(card).join('')}</div>`:''}).join('')}
-function card(o){let d=it(o.dress),p=d?[d,null,it(o.shoes)]:[it(o.top),it(o.bottom),it(o.shoes)];return `<article class="outfit" style="${o.packed?'border-color:#b8e8ce;':''}"><div class="look">${p.map((x,i)=>`<div class="mini">${pic(x,['👕','👖','👟'][i])}</div>`).join('')}</div><div class="outfitbody"><div class="row between"><div><div class="name" style="${o.packed?'text-decoration:line-through;opacity:.6':''}">${esc(o.name)}</div><div class="occasion">${o.packed?'✓ PACKED':ol(o.occasion)}</div></div><button class="btn ${o.packed?'primary':'secondary'}" style="font-size:11px;padding:7px" onclick="toggleOut('${o.id}')">${o.packed?'✓ Packed':'Mark packed'}</button></div><div class="actions"><button class="btn secondary" style="flex:1" onclick="outfit('${o.id}')">Edit look</button><button class="btn danger" onclick="delOut('${o.id}')">Delete</button></div></div></article>`}
+function card(o){let d=it(o.dress),p=d?[d,null,it(o.shoes)]:[it(o.top),it(o.bottom),it(o.shoes)];return `<article class="outfit" style="${o.packed?'border-color:#b8e8ce;':''}"><div class="look">${p.map((x,i)=>`<div class="mini">${pic(x,['👕','👖','👟'][i])}</div>`).join('')}</div><div class="outfitbody"><div class="row between"><div><div class="name" >${esc(o.name)}</div><div class="occasion">${o.packed?'✓ PACKED':ol(o.occasion)}</div></div><button class="btn ${o.packed?'primary':'secondary'}" style="font-size:11px;padding:7px" onclick="toggleOut('${o.id}')">${o.packed?'✓ Packed':'Mark packed'}</button></div><div class="actions"><button class="btn secondary" style="flex:1" onclick="outfit('${o.id}')">Edit look</button><button class="btn danger" onclick="delOut('${o.id}')" aria-label="Delete outfit">Delete</button></div></div></article>`}
 function wardrobe(){let cats=['All','Top','Bottom','Dress','Shorts','Jacket','Shoes'],a=data.items.filter(x=>(st.cat==='All'||x.category===st.cat)&&x.name.toLowerCase().includes(st.q.toLowerCase()));return `<div class="headrow"><h2>Your wardrobe</h2><button class="btn primary" onclick="addItem()">＋ Add</button></div><div class="help"><strong>Photo tip</strong>Take photos against a plain background in good light. This makes outfit combinations easier to scan.</div><input class="search" placeholder="Search clothing…" value="${esc(st.q)}" oninput="st.q=this.value;renderApp()"><div class="filters">${cats.map(c=>`<button class="filter ${st.cat===c?'active':''}" onclick="st.cat='${c}';renderApp()">${c}</button>`).join('')}</div>${a.length?`<div class="grid">${a.map(x=>`<article class="item"><div class="photo">${pic(x,x.category==='Shoes'?'👟':x.category==='Dress'?'👗':['Bottom','Shorts'].includes(x.category)?'👖':'👕')}</div><div class="body"><div class="name">${esc(x.name)}</div><div class="muted">${esc(x.category)}</div><span class="badge ${x.packed?'done':''}">${x.packed?'✓ Packed':'Not packed'}</span><div class="actions"><button class="btn secondary" onclick="addItem('${x.id}')">Edit</button><button class="btn secondary" style="flex:1" onclick="toggleItem('${x.id}')">${x.packed?'Unpack':'Mark packed'}</button><button class="btn danger" onclick="delItem('${x.id}')">×</button></div></div></article>`).join('')}</div>`:`<div class="empty"><h3>No matching clothing</h3><p>Try another filter or add a wardrobe item.</p><button class="btn primary" onclick="addItem()">＋ Add clothing</button></div>`}`}
 function other(){let cats=['All','Underwear','Toiletries','Documents','Electronics','Swimwear','Other'],a=data.other.filter(x=>(st.oc==='All'||x.category===st.oc)&&x.name.toLowerCase().includes(st.oq.toLowerCase()));return `<div class="headrow"><h2>Essentials checklist</h2><button class="btn primary" onclick="addOther()">＋ Add item</button></div><p class="hint">Underwear, toiletries, documents, electronics and everything beyond outfits.</p><input class="search" placeholder="Search essentials…" value="${esc(st.oq)}" oninput="st.oq=this.value;renderApp()"><div class="filters">${cats.map(c=>`<button class="filter ${st.oc===c?'active':''}" onclick="st.oc='${c}';renderApp()">${c}</button>`).join('')}</div>${a.length?`<div class="grid">${a.map(x=>`<div class="panel"><div class="row between"><div><div class="name">${esc(x.name)}</div><div class="muted">${esc(x.category)} · Qty ${x.qty||1}</div><span class="badge ${x.packed?'done':''}">${x.packed?'✓ Packed':'Not packed'}</span></div><button class="btn ${x.packed?'primary':'secondary'}" onclick="toggleOther('${x.id}')">${x.packed?'✓':'Pack'}</button></div><div class="actions"><button class="btn danger" onclick="delOther('${x.id}')">Remove</button></div></div>`).join('')}</div>`:`<div class="empty"><div style="font-size:34px">🪥</div><h3>Your checklist starts here</h3><p>Add essentials so nothing gets forgotten.</p><button class="btn primary" onclick="addOther()">＋ Add an essential</button></div>`}` }
 function packing(){
  const all=[...data.items.map(x=>({...x,kind:'items'})),...data.other.map(x=>({...x,kind:'other'}))];
  const packed=all.filter(x=>x.packed).length;
+ const filter=st.packingFilter||'all';
+ const visible=x=>filter==='all'||(filter==='packed'?!!x.packed:!x.packed);
  const groups=[['Clothing & shoes',all.filter(x=>x.kind==='items')],['Essentials',all.filter(x=>x.kind==='other')]];
- return `<div class="headrow"><h2>Pack your suitcase</h2><span class="muted">${packed} of ${all.length} packed</span></div><p class="hint">Tick each physical item once, even if used in multiple outfits. Marking an outfit packed also marks all of its clothing and shoes packed. Outfits are managed on the Outfits page.</p><div class="panel" style="margin-bottom:14px"><div class="row between"><b>Packing progress</b><b>${all.length?Math.round(100*packed/all.length):0}%</b></div><div class="progress" style="margin-top:10px"><div style="width:${all.length?100*packed/all.length:0}%"></div></div></div>${groups.map(([label,entries])=>`<div class="headrow"><h2>${label}</h2><span class="muted">${entries.filter(x=>x.packed).length}/${entries.length}</span></div>${entries.length?`<div class="panel" style="padding:5px 14px">${entries.map(x=>`<label style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);cursor:pointer"><input type="checkbox" style="width:21px;height:21px;flex:none;accent-color:var(--brand)" ${x.packed?'checked':''} onchange="packingToggle('${x.kind}','${x.id}',this.checked)"><span style="flex:1;min-width:0"><span style="display:block;font-weight:750;${x.packed?'text-decoration:line-through;opacity:.65':''}">${esc(x.name)}</span><span class="muted">${esc(x.category||'Other')}${x.kind==='other'?' · Qty '+(x.qty||1):''}</span></span></label>`).join('')}</div>`:`<div class="empty">Nothing added yet.</div>`}`).join('')}`;
+ return `<div class="headrow"><h2>Pack your suitcase</h2><span class="muted">${packed} of ${all.length} packed</span></div><p class="hint">Each physical item appears once, even when used in multiple outfits. Marking an outfit packed also marks its clothing packed.</p><div class="panel packing-summary"><div class="row between"><b>Packing progress</b><b>${all.length?Math.round(100*packed/all.length):0}%</b></div><div class="progress" style="margin-top:10px"><div style="width:${all.length?100*packed/all.length:0}%"></div></div><div class="filters packing-filters">${[['all','All items'],['unpacked','Unpacked'],['packed','Packed']].map(([k,v])=>`<button class="filter ${filter===k?'active':''}" onclick="st.packingFilter='${k}';renderApp()">${v}</button>`).join('')}</div></div>${groups.map(([label,entries])=>{const shown=entries.filter(visible).sort((a,b)=>Number(!!a.packed)-Number(!!b.packed));return `<details class="pack-category" open><summary><span>${label}</span><span class="muted">${entries.filter(x=>x.packed).length}/${entries.length} packed ▾</span></summary>${shown.length?`<div class="pack-items">${shown.map(x=>`<label class="pack-entry"><input type="checkbox" ${x.packed?'checked':''} onchange="packingToggle('${x.kind}','${x.id}',this.checked)"><span class="pack-entry-text"><strong class="${x.packed?'is-packed':''}">${esc(x.name)}</strong><span class="muted">${esc(x.category||'Other')}${x.kind==='other'?' · Qty '+(x.qty||1):''}</span></span></label>`).join('')}</div>`:`<div class="pack-empty">${entries.length?'No items match this filter.':'Nothing added yet.'}</div>`}</details>`}).join('')}`;
 }
 function packingToggle(kind,id,checked){const x=data[kind]?.find(x=>x.id===id);if(!x)return;mutateRecord(kind,id,{packed:checked});}
 function outfitUsage(itemId,currentOutfitId){return data.outfits.filter(o=>o.id!==currentOutfitId&&[o.top,o.bottom,o.dress,o.shoes].includes(itemId)).map(o=>o.name||'Unnamed outfit')}
@@ -226,32 +313,36 @@ function toggleItem(i){const x=it(i);if(x)mutateRecord('items',i,{packed:!x.pack
 function delItem(i){if(confirm('Remove this wardrobe item?'))runWrite(()=>tombstone('items',i)).then(renderApp).catch(()=>alert('Delete was not confirmed. Please retry sync.'))}
 function toggleOther(i){const x=data.other.find(x=>x.id===i);if(x)mutateRecord('other',i,{packed:!x.packed})}
 function delOther(i){if(confirm('Remove this item?'))runWrite(()=>tombstone('other',i)).then(renderApp).catch(()=>alert('Delete was not confirmed. Please retry sync.'))}
-// Atomically mark an outfit and its referenced clothing/shoes packed.
-// Shared clothing is only marked packed, never automatically unpacked.
+// Unpacking an outfit unpacks its clothing unless another packed outfit uses it.
 async function toggleOut(i){
  const outfit=data.outfits.find(x=>x.id===i);if(!outfit)return;
  const markPacked=!outfit.packed;
  const ids=[...new Set([outfit.top,outfit.bottom,outfit.dress,outfit.shoes].filter(Boolean))];
- const clothing=markPacked?ids.map(id=>data.items.find(x=>x.id===id)).filter(Boolean):[];
- // Don't silently claim an outfit is fully packed if one of its linked items is missing.
- if(markPacked&&clothing.length!==ids.length){alert('One or more pieces in this outfit are missing from your wardrobe. Nothing was changed.');return}
+ const linked=ids.map(id=>data.items.find(x=>x.id===id)).filter(Boolean);
+ if(markPacked&&linked.length!==ids.length){alert('One or more pieces in this outfit are missing from your wardrobe. Nothing was changed.');return}
+ const otherPackedIds=new Set(data.outfits.filter(o=>o.id!==i&&o.packed).flatMap(o=>[o.top,o.bottom,o.dress,o.shoes].filter(Boolean)));
+ const undoCandidates=markPacked?[]:linked.filter(x=>x.packed&&!otherPackedIds.has(x.id));
+ const targets=[{kind:'outfits',local:outfit},...(markPacked?linked:undoCandidates).map(local=>({kind:'items',local}))];
  try{
   await runWrite(async()=>{
-   const targets=[{kind:'outfits',local:outfit},...clothing.map(local=>({kind:'items',local}))];
    const timestamp=Date.now();
    const updates=await db.runTransaction(async tx=>{
-    // Firestore transactions require all reads before any writes.
     const reads=[];
     for(const t of targets){const ref=recordPath(t.kind,t.local.id);reads.push({t,ref,snap:await tx.get(ref)})}
-    const changes=[];
-    for(const {t,ref,snap} of reads){
+    for(const {t,snap} of reads){
      if(!snap.exists)throw new Error('A record is missing on Firebase. Refresh before trying again.');
      const remote=snap.data()||{};
      if(remote.deleted||Number(remote.updatedAtMs||0)!==Number(t.local.updatedAtMs||0))throw new Error('An item changed on another device. Refresh before trying again.');
-     const newPacked=t.kind==='outfits'?markPacked:true;
-     if(!!remote.packed===newPacked)continue;
+    }
+    const newlyPacked=markPacked?reads.filter(({t,snap})=>t.kind==='items'&&!snap.data().packed).map(({t})=>t.local.id):[];
+    const changes=[];
+    for(const {t,ref,snap} of reads){
+     const remote=snap.data()||{};
+     const newPacked=t.kind==='outfits'?markPacked:markPacked;
      const next={...remote,id:t.local.id,packed:newPacked,updatedAtMs:timestamp,updatedAt:firebase.firestore.FieldValue.serverTimestamp()};
-     changes.push({kind:t.kind,rec:{...next,updatedAtMs:timestamp}});
+     if(t.kind==='outfits')next.autoPackedItemIds=markPacked?newlyPacked:[];
+     if(!!remote.packed===newPacked&&t.kind!=='outfits')continue;
+     changes.push({kind:t.kind,rec:next});
      tx.set(ref,next,{merge:false});
     }
     return changes;
@@ -266,4 +357,79 @@ function delOut(i){if(confirm('Delete this outfit?'))runWrite(()=>tombstone('out
 function listText(){let s=`CRUISE PACKING LIST\n${data.cruise.name||'My Cruise'}\n\n`;['day','ashore','dinner','dressup'].forEach(o=>{const a=data.outfits.filter(x=>x.occasion===o);if(a.length){s+=ol(o).toUpperCase()+' OUTFITS\n';a.forEach(x=>s+=`- ${x.name}: ${[x.dress?it(x.dress)?.name:it(x.top)?.name,it(x.bottom)?.name,it(x.shoes)?.name].filter(Boolean).join(', ')}\n`);s+='\n'}});s+='CLOTHING / SHOES\n';data.items.forEach(x=>s+=`[${x.packed?'x':' '}] ${x.name} (${x.category})\n`);s+='\nESSENTIALS\n';data.other.forEach(x=>s+=`[${x.packed?'x':' '}] ${x.name} (${x.category}) x${x.qty||1}\n`);return s}
 function download(){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([listText()],{type:'text/plain'}));a.download='cruise-packing-list.txt';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
 async function copy(){try{await navigator.clipboard.writeText(listText());alert('Checklist copied.')}catch(e){alert('Use Download TXT if copy is unavailable.')}}
-</script></body></html>
+</script><style>
+/* Desktop and mobile: navigation follows the dashboard and itinerary in document flow. */
+@media (min-width:1000px){
+ main{padding-left:clamp(16px,3.5vw,48px)}
+ .tabs{position:static;top:auto;left:auto;width:100%;display:flex;flex-direction:row;align-items:stretch;gap:6px;background:#eaeaef;padding:6px;margin:0 0 25px;overflow-x:auto;border-radius:16px}
+ .tab{flex:1;justify-content:center;padding:13px 14px;font-size:14px;border-radius:11px}
+ .tab.active{background:white;color:#1d1d1f;box-shadow:0 2px 9px #20233312}
+ .nav-label{display:none}
+}
+/* Original direct add actions are always visible along the bottom. */
+.bottom.quick-add{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));max-width:1160px;margin:auto;gap:9px;padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
+.bottom.quick-add button{display:flex;flex-direction:row;align-items:center;justify-content:center;gap:6px;background:#eef1f7;color:#263a58;border-radius:13px;padding:12px 7px;font-size:17px;font-weight:800}
+.bottom.quick-add button:first-child{background:#3f5cb7;color:white}
+.bottom.quick-add button span{font-size:12px;color:inherit;font-weight:750}
+@media(max-width:650px){.tabs{display:flex;gap:5px;padding:5px;margin:0 0 19px}.tab{font-size:12px;padding:10px 11px}.nav-glyph{font-size:15px}.bottom.quick-add button span{font-size:11px}}
+
+/* Tropical resort edition: presentation-only changes, no persistence changes. */
+:root{--bg:#f3faf7;--ink:#163d44;--muted:#627f80;--line:#d7e9e3;--brand:#087f8c}
+body{background:var(--bg);color:var(--ink)}
+.wrap{max-width:1380px}
+.studio-hero{margin:18px clamp(14px,2vw,28px) 0;background:linear-gradient(112deg,#086e79 0%,#0b8e91 58%,#3dbba8 100%);border-radius:26px;box-shadow:0 12px 36px #087f8c20}
+.studio-hero:before{border-color:#ffffff28;box-shadow:0 0 0 70px #ffffff0b,0 0 0 150px #ffffff08}
+.hero-kicker{color:#d3f8eb}.hero-dot{background:#f4c66a}.studio-hero p{color:#ddf6f0}.hero-link{color:#fff}
+.hero-button{color:#075f67}.hero-progress{color:#e1fbf4}.hero-ring{background:conic-gradient(#f4c66a calc(var(--pct)*1%),#ffffff40 0)}.hero-ring>div{background:#0c8589}.hero-ring small{color:#d8f7ed}
+header{background:transparent;border:0;padding:13px clamp(18px,3.5vw,48px) 4px;color:var(--ink)}
+.brand{font-size:16px;color:#0a6972}.brand-mark{background:#0c8c8c}.sub{color:#648481}.icon{background:#e3f4ee;color:#087f8c;border-color:#cce9df}
+main{padding-top:6px!important;padding-left:clamp(16px,3.5vw,48px)!important}
+.tabs{position:static!important;top:auto!important;left:auto!important;width:100%!important;display:flex!important;flex-direction:row!important;align-items:stretch!important;gap:6px!important;background:#e1f2ec!important;padding:6px!important;margin:0 0 18px!important;overflow-x:auto!important;border-radius:16px!important}
+.tab{flex:1!important;justify-content:center!important;background:transparent;color:#366d70!important;border-radius:11px!important;padding:12px 14px!important;font-size:13px!important}
+.tab.active{background:white!important;color:#067d84!important;box-shadow:0 2px 12px #067d8417!important}
+.nav-label{display:none!important}
+.stat,.panel,.item,.outfit,.voyage-panel,.pack-category{border-color:#d9eae4;box-shadow:0 5px 18px #0d6e7110}
+.stat-icon{background:#e5f6ef;color:#087f8c}.occasion{color:#087f8c}.primary{background:#087f8c}.secondary{background:#e5f3ee;color:#1c6569}
+.filter.active,.chip.sel{background:#dcf5eb;color:#087f8c;border-color:#a9dfce}.progress div{background:#1eaf9f}.pack-entry input{accent-color:#087f8c}.badge.done{background:#ddf5e9;color:#14735c}
+.voyage-day.port{background:#eaf9f4;border-color:#cceade}.voyage-weather{color:#087f8c}.voyage-advice{background:#edf8f3;color:#315e5c}.voyage-heading h2{color:#135e65}
+.bottom.quick-add{background:#fafffdf5;border-top-color:#d6ebe2;box-shadow:0 -5px 24px #087f8c10}
+.bottom.quick-add button{background:#e4f4ed;color:#116c6d}.bottom.quick-add button:first-child{background:#087f8c;color:#fff}.bottom.quick-add button:nth-child(2){background:#f7eac6;color:#655020}
+button:focus-visible,input:focus-visible{outline-color:#f4c66a}
+@media(max-width:650px){.studio-hero{margin:10px 10px 0;border-radius:21px}.tabs{gap:4px!important}.tab{flex:0 0 auto!important;padding:10px 12px!important;font-size:12px!important}header{padding:10px 17px 3px}.hero-progress{min-width:88px}}
+@media print{.studio-hero,.tabs,.bottom{display:none!important}}
+</style></body></html>
+<style>
+/* Tropical compact dashboard: keeps original navigation and quick-add actions */
+.studio-hero{min-height:0!important;padding:20px 30px!important;margin-top:8px!important;margin-bottom:8px!important;border-radius:20px!important;gap:20px!important}
+.studio-hero h1{font-size:clamp(24px,2.7vw,36px)!important;margin:8px 0 8px!important}
+.studio-hero p{margin:0 0 12px!important;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.hero-countdown{display:inline-flex;align-items:center;background:#ffffff27;border:1px solid #ffffff40;color:white;border-radius:999px;padding:6px 11px;font-size:12px;font-weight:800;letter-spacing:.04em;white-space:nowrap}
+.hero-subtitle{font-size:12px}
+.hero-actions{gap:8px!important}
+.hero-button{padding:9px 13px!important;font-size:12px!important}
+.hero-link{padding:8px!important;font-size:12px!important}
+.hero-progress{min-width:110px!important;gap:5px!important}
+.hero-ring{height:90px!important;width:90px!important;padding:6px!important}
+.hero-ring strong{font-size:24px!important}
+.hero-tools{position:absolute;right:22px;top:13px;z-index:3;display:flex;gap:6px}
+.hero-tools button{border:1px solid #ffffff38;background:#ffffff1c;color:#fff;border-radius:9px;padding:6px 9px;font-size:11px;font-weight:700;cursor:pointer}
+.hero-tools button:hover{background:#ffffff35}
+.studio-hero .hero-progress{margin-top:24px}
+main{padding-top:6px!important}
+@media(max-width:650px){
+ .studio-hero{padding:16px 14px!important;gap:7px!important}
+ .studio-hero h1{font-size:22px!important;max-width:240px}
+ .hero-tools{right:10px;top:9px;gap:4px}
+ .hero-tools button{font-size:10px;padding:5px 6px}
+ .hero-kicker{font-size:9px}
+ .hero-countdown{font-size:10px;padding:4px 7px}
+ .hero-subtitle{display:none}
+ .hero-ring{height:68px!important;width:68px!important}
+ .hero-ring strong{font-size:18px!important}
+ .hero-ring small{font-size:7px!important}
+ .hero-progress{min-width:70px!important;margin-top:22px!important}
+ .hero-progress>span{font-size:9px!important;text-align:center}
+ .hero-button{padding:8px 9px!important}
+ .hero-link{display:none!important}
+}
+</style>
