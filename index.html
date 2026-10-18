@@ -206,7 +206,7 @@ function packing(){
  const all=[...data.items.map(x=>({...x,kind:'items'})),...data.other.map(x=>({...x,kind:'other'}))];
  const packed=all.filter(x=>x.packed).length;
  const groups=[['Clothing & shoes',all.filter(x=>x.kind==='items')],['Essentials',all.filter(x=>x.kind==='other')]];
- return `<div class="headrow"><h2>Pack your suitcase</h2><span class="muted">${packed} of ${all.length} packed</span></div><p class="hint">Tick each physical item once, even when it is used in multiple outfits. Outfits have their own packed checklist below. Changes sync after saving.</p><div class="panel" style="margin-bottom:14px"><div class="row between"><b>Packing progress</b><b>${all.length?Math.round(100*packed/all.length):0}%</b></div><div class="progress" style="margin-top:10px"><div style="width:${all.length?100*packed/all.length:0}%"></div></div></div><div class="headrow"><h2>Outfits</h2><span class="muted">${data.outfits.filter(x=>x.packed).length}/${data.outfits.length} packed</span></div><p class="hint">Tick an outfit once you have packed it. Packed outfits are crossed off but remain visible, and you can untick them at any time. This checklist is separate from individual clothing to avoid counting the same clothes twice.</p>${data.outfits.length?`<div class="panel" style="padding:5px 14px">${[...data.outfits].sort((a,b)=>Number(a.packed)-Number(b.packed)).map(x=>`<label style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);cursor:pointer"><input type="checkbox" style="width:21px;height:21px;flex:none;accent-color:var(--brand)" ${x.packed?'checked':''} onchange="packingToggle('outfits','${x.id}',this.checked)"><span style="flex:1;min-width:0"><span style="display:block;font-weight:750;${x.packed?'text-decoration:line-through;opacity:.65':''}">${esc(x.name)}</span><span class="muted">${esc(ol(x.occasion))}${x.packed?' · Packed':''}</span></span></label>`).join('')}</div>`:`<div class="empty">No outfits added yet.</div>`}${groups.map(([label,entries])=>`<div class="headrow"><h2>${label}</h2><span class="muted">${entries.filter(x=>x.packed).length}/${entries.length}</span></div>${entries.length?`<div class="panel" style="padding:5px 14px">${entries.map(x=>`<label style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);cursor:pointer"><input type="checkbox" style="width:21px;height:21px;flex:none;accent-color:var(--brand)" ${x.packed?'checked':''} onchange="packingToggle('${x.kind}','${x.id}',this.checked)"><span style="flex:1;min-width:0"><span style="display:block;font-weight:750;${x.packed?'text-decoration:line-through;opacity:.65':''}">${esc(x.name)}</span><span class="muted">${esc(x.category||'Other')}${x.kind==='other'?' · Qty '+(x.qty||1):''}</span></span></label>`).join('')}</div>`:`<div class="empty">Nothing added yet.</div>`}`).join('')}`;
+ return `<div class="headrow"><h2>Pack your suitcase</h2><span class="muted">${packed} of ${all.length} packed</span></div><p class="hint">Tick each physical item once, even if used in multiple outfits. Marking an outfit packed also marks all of its clothing and shoes packed. Outfits are managed on the Outfits page.</p><div class="panel" style="margin-bottom:14px"><div class="row between"><b>Packing progress</b><b>${all.length?Math.round(100*packed/all.length):0}%</b></div><div class="progress" style="margin-top:10px"><div style="width:${all.length?100*packed/all.length:0}%"></div></div></div>${groups.map(([label,entries])=>`<div class="headrow"><h2>${label}</h2><span class="muted">${entries.filter(x=>x.packed).length}/${entries.length}</span></div>${entries.length?`<div class="panel" style="padding:5px 14px">${entries.map(x=>`<label style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);cursor:pointer"><input type="checkbox" style="width:21px;height:21px;flex:none;accent-color:var(--brand)" ${x.packed?'checked':''} onchange="packingToggle('${x.kind}','${x.id}',this.checked)"><span style="flex:1;min-width:0"><span style="display:block;font-weight:750;${x.packed?'text-decoration:line-through;opacity:.65':''}">${esc(x.name)}</span><span class="muted">${esc(x.category||'Other')}${x.kind==='other'?' · Qty '+(x.qty||1):''}</span></span></label>`).join('')}</div>`:`<div class="empty">Nothing added yet.</div>`}`).join('')}`;
 }
 function packingToggle(kind,id,checked){const x=data[kind]?.find(x=>x.id===id);if(!x)return;mutateRecord(kind,id,{packed:checked});}
 function outfitUsage(itemId,currentOutfitId){return data.outfits.filter(o=>o.id!==currentOutfitId&&[o.top,o.bottom,o.dress,o.shoes].includes(itemId)).map(o=>o.name||'Unnamed outfit')}
@@ -226,7 +226,42 @@ function toggleItem(i){const x=it(i);if(x)mutateRecord('items',i,{packed:!x.pack
 function delItem(i){if(confirm('Remove this wardrobe item?'))runWrite(()=>tombstone('items',i)).then(renderApp).catch(()=>alert('Delete was not confirmed. Please retry sync.'))}
 function toggleOther(i){const x=data.other.find(x=>x.id===i);if(x)mutateRecord('other',i,{packed:!x.packed})}
 function delOther(i){if(confirm('Remove this item?'))runWrite(()=>tombstone('other',i)).then(renderApp).catch(()=>alert('Delete was not confirmed. Please retry sync.'))}
-function toggleOut(i){const x=data.outfits.find(x=>x.id===i);if(x)mutateRecord('outfits',i,{packed:!x.packed})}
+// Atomically mark an outfit and its referenced clothing/shoes packed.
+// Shared clothing is only marked packed, never automatically unpacked.
+async function toggleOut(i){
+ const outfit=data.outfits.find(x=>x.id===i);if(!outfit)return;
+ const markPacked=!outfit.packed;
+ const ids=[...new Set([outfit.top,outfit.bottom,outfit.dress,outfit.shoes].filter(Boolean))];
+ const clothing=markPacked?ids.map(id=>data.items.find(x=>x.id===id)).filter(Boolean):[];
+ // Don't silently claim an outfit is fully packed if one of its linked items is missing.
+ if(markPacked&&clothing.length!==ids.length){alert('One or more pieces in this outfit are missing from your wardrobe. Nothing was changed.');return}
+ try{
+  await runWrite(async()=>{
+   const targets=[{kind:'outfits',local:outfit},...clothing.map(local=>({kind:'items',local}))];
+   const timestamp=Date.now();
+   const updates=await db.runTransaction(async tx=>{
+    // Firestore transactions require all reads before any writes.
+    const reads=[];
+    for(const t of targets){const ref=recordPath(t.kind,t.local.id);reads.push({t,ref,snap:await tx.get(ref)})}
+    const changes=[];
+    for(const {t,ref,snap} of reads){
+     if(!snap.exists)throw new Error('A record is missing on Firebase. Refresh before trying again.');
+     const remote=snap.data()||{};
+     if(remote.deleted||Number(remote.updatedAtMs||0)!==Number(t.local.updatedAtMs||0))throw new Error('An item changed on another device. Refresh before trying again.');
+     const newPacked=t.kind==='outfits'?markPacked:true;
+     if(!!remote.packed===newPacked)continue;
+     const next={...remote,id:t.local.id,packed:newPacked,updatedAtMs:timestamp,updatedAt:firebase.firestore.FieldValue.serverTimestamp()};
+     changes.push({kind:t.kind,rec:{...next,updatedAtMs:timestamp}});
+     tx.set(ref,next,{merge:false});
+    }
+    return changes;
+   });
+   for(const {kind,rec} of updates)upsertLocal(kind,rec);
+   localWrite();renderApp();
+  });
+ }catch(e){alert('Packing update was not saved. No partial changes were committed. '+(e.message||''))}
+}
+
 function delOut(i){if(confirm('Delete this outfit?'))runWrite(()=>tombstone('outfits',i)).then(renderApp).catch(()=>alert('Delete was not confirmed. Please retry sync.'))}
 function listText(){let s=`CRUISE PACKING LIST\n${data.cruise.name||'My Cruise'}\n\n`;['day','ashore','dinner','dressup'].forEach(o=>{const a=data.outfits.filter(x=>x.occasion===o);if(a.length){s+=ol(o).toUpperCase()+' OUTFITS\n';a.forEach(x=>s+=`- ${x.name}: ${[x.dress?it(x.dress)?.name:it(x.top)?.name,it(x.bottom)?.name,it(x.shoes)?.name].filter(Boolean).join(', ')}\n`);s+='\n'}});s+='CLOTHING / SHOES\n';data.items.forEach(x=>s+=`[${x.packed?'x':' '}] ${x.name} (${x.category})\n`);s+='\nESSENTIALS\n';data.other.forEach(x=>s+=`[${x.packed?'x':' '}] ${x.name} (${x.category}) x${x.qty||1}\n`);return s}
 function download(){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([listText()],{type:'text/plain'}));a.download='cruise-packing-list.txt';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
