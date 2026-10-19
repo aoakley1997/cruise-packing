@@ -56,9 +56,14 @@ main{padding:26px clamp(16px,3.5vw,48px) 50px}
 @media(max-width:650px){.voyage-panel{padding:16px 14px;border-radius:18px}.voyage-day{min-width:124px;flex-basis:124px}.voyage-heading h2{font-size:18px}}
 
 .pack-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}.pack-actions .btn{font-size:12px;min-width:0}.panel .actions{flex-wrap:wrap}
-/* Cruise Packer — mobile button layout patch.
-   Add at the very END of the existing <style> block, just before 
-@media(max-width:650px){.panel>.pack-actions{display:flex;flex-direction:column}.panel>.pack-actions>.btn{width:100%}.panel>.actions{display:flex;flex-direction:column}.panel>.actions>.btn{width:100%}}
+/* Mobile buttons: stacked, full-width, and safe on narrow iPhones. */
+@media(max-width:650px){
+.item .actions,.outfit .actions,.pack-actions{display:flex!important;flex-direction:column!important;flex-wrap:nowrap!important;align-items:stretch!important;width:100%!important;min-width:0!important;gap:7px!important}
+.item .actions>.btn,.outfit .actions>.btn,.pack-actions>.btn{display:block!important;flex:0 0 auto!important;width:100%!important;max-width:100%!important;min-width:0!important;box-sizing:border-box!important;white-space:normal!important;overflow-wrap:anywhere!important;text-align:center!important;min-height:40px!important}
+.pack-entry{flex-wrap:wrap!important;min-width:0!important}.pack-entry>label{min-width:0!important}.pack-entry>.pack-actions{flex:1 0 100%!important}
+.item .body,.outfit .outfitbody{min-width:0!important}
+}
+
 </style>.
    Visual changes only: no Firebase, packing statuses, or data mutations. */
 @media (max-width: 650px) {
@@ -305,7 +310,7 @@ async function ensureVoyageWeather(force=false){if(weatherLoading||(!force&&Date
  }));}catch(e){console.warn('Weather unavailable; packing data unaffected',e)}finally{weatherLoading=false;if(currentUser&&cloudReady){const panel=document.querySelector('.voyage-panel');if(panel)panel.outerHTML=voyagePanel()}}
 }
 
-const excluded=x=>x?.packStatus==='not_packing';
+const excluded=x=>!x?.packed&&(x?.packStatus==='not_packing'||x?.notPacking===true);
 const activeItems=()=>[...data.items,...data.other].filter(x=>!excluded(x));
 const packingTotals=()=>{const a=activeItems();return {total:a.length,packed:a.filter(x=>x.packed).length}};
 const statusLabel=x=>excluded(x)?'Not packing':x.packed?'✓ Packed':'To pack';
@@ -319,7 +324,7 @@ async function changeStatus(kind,id,nextStatus){
    if(!snap.exists||snap.data().deleted)throw new Error('Item not found in cloud. Reload first.');
    const outfits=[];
    for(const o of related){const r=recordPath('outfits',o.id);outfits.push({ref:r,snap:await tx.get(r)});}
-   const stamp=Date.now(),rec={...snap.data(),packed:nextStatus==='packed',packStatus:nextStatus,updatedAtMs:stamp,updatedAt:firebase.firestore.FieldValue.serverTimestamp()};
+   const stamp=Date.now(),isPacked=nextStatus==='packed',rec={...snap.data(),packed:isPacked,packStatus:isPacked?'packed':nextStatus,notPacking:nextStatus==='not_packing',updatedAtMs:stamp,updatedAt:firebase.firestore.FieldValue.serverTimestamp()};
    tx.set(ref,rec,{merge:false});const changed=[];
    for(const o of outfits){if(o.snap.exists&&o.snap.data().packed&&!o.snap.data().deleted){const v={...o.snap.data(),packed:false,updatedAtMs:stamp,updatedAt:firebase.firestore.FieldValue.serverTimestamp()};tx.set(o.ref,v,{merge:false});changed.push(v);}}
    return {rec,changed};
